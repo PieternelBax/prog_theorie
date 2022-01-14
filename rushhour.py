@@ -1,6 +1,17 @@
 import pandas as pd
 import argparse
 
+# load car files
+# make a dictionary
+vehicle = {}
+
+with open(file_load, 'r') as file:
+    csv_car_file = csv.DictReader(file)
+    for row in csv_car_file:
+
+
+
+# parser for command line
 if __name__ == '__main__':
 
     # Import CSV file and read to Pandas Dataframe
