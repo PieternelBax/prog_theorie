@@ -7,3 +7,5 @@
 4. Schrijf vervolgens een functie die een instantie van het probleem inleest en op basis daarvan instanties (objecten) van de verschillende classes aanmaakt. 
 
 5. Schrijf dan nog één functie, die de objecten van de verschillende classes inneemt en output in het voorgeschreven format genereerd. Deze output hoeft geen geldige oplossing te zijn.
+
+6. 
