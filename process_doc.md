@@ -8,4 +8,4 @@
 
 5. Schrijf dan nog één functie, die de objecten van de verschillende classes inneemt en output in het voorgeschreven format genereerd. Deze output hoeft geen geldige oplossing te zijn.
 
-6. Hello
+6. Hello eeiieieje
