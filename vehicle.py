@@ -1,8 +1,8 @@
 class Vehicle():
 
     def __init__(self):
-        self.name
-        self.x
-        self.y
-        self.orientation
-        self.lenght
+        self.id = id
+        self.x = x_axes
+        self.y = y_axes
+        self.orientation = orientation
+        self.lenght = lenght
