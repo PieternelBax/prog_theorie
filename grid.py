@@ -2,9 +2,6 @@
 class grid():
     # load the file (in this case: source_file)
     def __init__(self, file):
-        # cars
-        self.cars = self.load_cars(file)
-        # board game grid
         self.board = self.grid_size(file)
         # the move to the exit
         self.end_move
