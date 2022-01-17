@@ -1,6 +1,6 @@
 # setting up the grid for Rush Hour
 from venv import create
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 class Grid():
     # load the file (in this case: source_file)
@@ -40,8 +40,6 @@ class Grid():
                 grid.append([row, col])
         
         print(grid)
-        plt.imshow(grid)
-        plt.show()
 
 if __name__ == '__main__':
     grid = Grid.create_grid()

@@ -5,4 +5,4 @@ class Vehicle():
         self.x = x_axes
         self.y = y_axes
         self.orientation = orientation
-        self.lenght = lenght
+        self.lenght = length
