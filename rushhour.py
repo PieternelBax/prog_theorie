@@ -12,9 +12,9 @@ if __name__ == '__main__':
     df = pd.read_csv(file.csvfile)
     
     new_file = str(file)
-    split_name = new_file.split("'")
-    print(split_name[1])
+    split_name = new_file.split("'")[1]
+    # print(split_name[1])
 
-    grid_return = Grid.grid_size(split_name[1])
+    grid_return = Grid.grid_size(file, split_name)
 
     print(grid_return)
