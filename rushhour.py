@@ -1,15 +1,8 @@
 import pandas as pd
 import argparse
 
-# load car files
-# make a dictionary
-vehicle = {}
-
-with open(file_load, 'r') as file:
-    csv_car_file = csv.DictReader(file)
-    for row in csv_car_file:
-
-
+def load_vehicles(df):
+    
 
 # parser for command line
 if __name__ == '__main__':
@@ -20,4 +13,5 @@ if __name__ == '__main__':
     file = parser.parse_args()
     df = pd.read_csv(file.csvfile)
 
-    print(df)
+    load_vehicles(df)
+
