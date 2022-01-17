@@ -16,8 +16,9 @@ if __name__ == '__main__':
     split_name = new_file.split("'")[1]
     # print(split_name[1])
 
-    grid_return = Grid.grid_size(file, split_name)
-    Grid.create_grid(file, int(grid_return))
+    grid_object = Grid(file)
+    grid_return = Grid.grid_size(split_name)
+    grid = Grid.create_grid(int(grid_return))
 
 
     print(grid_return)
