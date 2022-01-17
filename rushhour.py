@@ -16,5 +16,6 @@ if __name__ == '__main__':
     # print(split_name[1])
 
     grid_return = Grid.grid_size(file, split_name)
+    Grid.create_grid(file, int(grid_return))
 
     print(grid_return)

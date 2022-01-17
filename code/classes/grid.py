@@ -1,4 +1,7 @@
 # setting up the grid for Rush Hour
+from venv import create
+import matplotlib.pyplot as plt
+
 class Grid():
     # load the file (in this case: source_file)
     def __init__(self, file):
@@ -26,4 +29,21 @@ class Grid():
             return "9"
         else:
             return "Try new size of board"
+
+    def create_grid(self, size):
+        grid = []
+
+        size = size + 1
+
+        for row in range(1, size):
+            for col in range(1, size):
+                grid.append([row, col])
+        
+        print(grid)
+        plt.imshow(grid)
+        plt.show()
+
+if __name__ == '__main__':
+    grid = Grid.create_grid()
+
         
