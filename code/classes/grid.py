@@ -7,7 +7,7 @@ class Grid():
     def __init__(self, file):
         self.board = self.grid_size(file)
         # the move to the exit
-        self.end_move
+        # self.end_move = end_move
 
     def grid_size(self, file):
         #  Returns a 2D grid array with the starting positions of the car objects.
