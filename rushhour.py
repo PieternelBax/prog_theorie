@@ -1,6 +1,7 @@
 import pandas as pd
 import argparse
 from code.classes.grid import Grid
+import matplotlib.pyplot as plt
 
 # parser for command line
 if __name__ == '__main__':
@@ -16,5 +17,6 @@ if __name__ == '__main__':
     # print(split_name[1])
 
     grid_return = Grid.grid_size(file, split_name)
+
 
     print(grid_return)
