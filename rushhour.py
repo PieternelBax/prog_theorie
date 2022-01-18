@@ -14,28 +14,10 @@ def create_vehicle(file):
 
         # create vehicle for each row in file
         for row in csv_reader:
-            print(row)
-            # print(row)
-            # print(row[0])
-            # print(row[1])
-            # print(row[2])
-            # print(row[3])
-            #print(row[4])
-            #print(type(row))
-
-            car_id = row[0]
-            orientation = row[1]
-            column = row[2]
-            row = row[3]
-
-            """----------krijgt index error----------"""
-            car_length = row[4]
-
-
             # create vehicle
-            #vehicle = Vehicle(car_id, row, column, orientation, car_length)
+            vehicle = Vehicle(row["car"], row["row"], row["col"], row["orientation"], row["length"])
 
-            #print(vehicle)
+            print(vehicle)
 
 
 # parser for command line
