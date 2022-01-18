@@ -23,7 +23,3 @@ if __name__ == '__main__':
 
     # get grid
     grid = grid_object.create_grid(int(grid_size))
-
-
-    print(grid_size)
-    print(grid)
