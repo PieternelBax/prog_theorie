@@ -1,5 +1,4 @@
 # setting up the grid for Rush Hour
-from venv import create
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import LogNorm

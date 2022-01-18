@@ -15,7 +15,6 @@ def main():
     new_file = str(file)
     
     split_name = new_file.split("'")[1]
-    #print(split_name)
 
     # create grid object
     grid_object = Grid(file)
