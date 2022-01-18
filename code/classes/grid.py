@@ -39,9 +39,6 @@ class Grid():
             for col in range(1, size):
                 grid.append([row, col])
         
-        print(grid)
-
-if __name__ == '__main__':
-    grid = Grid.create_grid()
+        return grid
 
         
