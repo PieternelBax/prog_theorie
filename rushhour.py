@@ -14,11 +14,16 @@ if __name__ == '__main__':
     
     new_file = str(file)
     split_name = new_file.split("'")[1]
-    # print(split_name[1])
 
+    # create grid object
     grid_object = Grid(file)
-    grid_return = Grid.grid_size(split_name)
-    grid = Grid.create_grid(int(grid_return))
+
+    # get grid size
+    grid_size = grid_object.grid_size(split_name)
+
+    # get grid
+    grid = grid_object.create_grid(int(grid_size))
 
 
-    print(grid_return)
+    print(grid_size)
+    print(grid)
