@@ -40,5 +40,4 @@ class Grid():
                 grid.append([row, col])
         
         return grid
-
-        
+           

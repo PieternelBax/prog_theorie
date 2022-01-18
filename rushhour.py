@@ -1,7 +1,38 @@
 import pandas as pd
+import csv
 import argparse
 from code.classes.grid import Grid
+from code.classes.vehicle import Vehicle
 import matplotlib.pyplot as plt
+
+def create_vehicle(file):
+    with open(file, "r") as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter = ",")
+
+        # skip header
+        next(csv_reader)
+
+        # create vehicle for each row in file
+        for row in csv_reader:
+            # print(row[0])
+            # print(row[1])
+            # print(row[2])
+            # print(row[3])
+            # print(row[4])
+
+            car_id = row[0]
+            orientation = row[1]
+            column = row[2]
+            row = row[3]
+
+            """----------krijgt index error----------"""
+            car_length = row[4]
+
+            # create vehicle
+            vehicle = Vehicle(car_id, row, column, orientation, car_length)
+
+            print(vehicle)
+
 
 # parser for command line
 if __name__ == '__main__':
@@ -25,5 +56,8 @@ if __name__ == '__main__':
     grid = grid_object.create_grid(int(grid_size))
 
 
-    print(grid_size)
-    print(grid)
+    # print(grid_size)
+    # print(grid)
+
+    # 
+    create_vehicle(split_name)
