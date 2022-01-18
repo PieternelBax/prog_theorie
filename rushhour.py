@@ -1,7 +1,24 @@
 import pandas as pd
+import csv
 import argparse
 from code.classes.grid import Grid
+from code.classes.vehicle import Vehicle
 import matplotlib.pyplot as plt
+
+def create_vehicle(file):
+    with open(file, "r") as csv_file:
+        csv_reader = csv.DictReader(csv_file, delimiter = ",")
+
+        # skip header
+        # next(csv_reader)
+
+        # create vehicle for each row in file
+        for row in csv_reader:
+            # create vehicle
+            vehicle = Vehicle(row["car"], row["row"], row["col"], row["orientation"], row["length"])
+
+            print(vehicle)
+
 
 # parser for command line
 if __name__ == '__main__':
@@ -13,7 +30,9 @@ if __name__ == '__main__':
     df = pd.read_csv(file.csvfile)
     
     new_file = str(file)
+    
     split_name = new_file.split("'")[1]
+    #print(split_name)
 
     # create grid object
     grid_object = Grid(file)
