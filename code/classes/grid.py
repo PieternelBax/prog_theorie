@@ -1,4 +1,8 @@
 # setting up the grid for Rush Hour
+from venv import create
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.colors import LogNorm
 
 class Grid():
     # load the file (in this case: source_file)
@@ -29,13 +33,29 @@ class Grid():
             return "Try new size of board"
 
     def create_grid(self, size):
-        grid = []
+        # grid = []
 
-        size = size + 1
+        # size = size + 1
 
-        for row in range(1, size):
-            for col in range(1, size):
-                grid.append([row, col])
+        # for row in range(1, size):
+        #     for col in range(1, size):
+        #         grid.append([row, col])
+
+        nx, ny = (size, size)
+        x = np.linspace(1, size, nx)
+        y = np.linspace(1, size, ny)
+        X, Y = np.meshgrid(x , y)
+        
+        # x_2, y_2 = np.meshgrid(x, y, indexing = 'ij')
+        min_max = np.min(x), np.max(x), np.min(y), np.max(y) 
+        res = np.add.outer(range(size), range(size))%2 
+
+        plt.imshow(res)
+        plt.xticks([])
+        plt.yticks([])
+        plt.show()
+
+
         
         return grid
            
