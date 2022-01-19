@@ -1,48 +1,31 @@
-import pandas as pd
-import csv
-import argparse
 from code.classes.grid import Grid
-from code.classes.vehicle import Vehicle
+# import code.loader as loader
 import matplotlib.pyplot as plt
+import pandas as pd
+import argparse
+import re
 
 def main():
-    # Import CSV file and read to Pandas Dataframe
+    # import CSV file and read to Pandas Dataframe
     parser = argparse.ArgumentParser()
     parser.add_argument('csvfile', nargs='?', help="Add game csv path here", default="data/Rushhour6x6_1.csv")
     file = parser.parse_args()
-    df = pd.read_csv(file.csvfile)
-    
-    new_file = str(file)
-    
-    split_name = new_file.split("'")[1]
+    # df = pd.read_csv(file.csvfile)
+
+    # get grid size from file name
+    size = int(re.findall(r'[0-9]+', f"{file.csvfile}")[0])
+    # print(width)
+
+    # print(height)
 
     # create grid object
-    grid_object = Grid(file)
-
-    # get grid size
-    grid_size = grid_object.grid_size(split_name)
-
-    # create grid
-    grid = grid_object.create_grid(int(grid_size))
-
-    # print(grid_size)
-    print(grid)
-
-    # create vehicle objects
-    create_vehicle(file.csvfile)
+    grid_object = Grid(size)
+    print(grid_object.board)
 
 
-def create_vehicle(file):
-    with open(file, "r") as csv_file:
-        # create dict with vehicle info
-        csv_reader = csv.DictReader(csv_file, delimiter = ",")
+    # grid_object.load_vehicle_dict(file.csvfile)
 
-        # create vehicle for each row in file
-        for row in csv_reader:
-            # create vehicle
-            vehicle = Vehicle(row["car"], row["row"], row["col"], row["orientation"], row["length"])
-
-            #print(vehicle)
+    # print(grid_object._vehicles)
 
 
 # parser for command line

@@ -1,47 +1,46 @@
-# setting up the grid for Rush Hour
+from matplotlib.colors import LogNorm
 from code.classes.vehicle import Vehicle
+# import code.loader as loader
+import matplotlib.pyplot as plt
+import numpy as np
+import csv
 
-class Grid():
+class Grid(object):
     # load the file (in this case: source_file)
-    def __init__(self, file):
-        self.board = self.grid_size(file)
-        # the move to the exit
+    def __init__(self, size):
+        self._size = size
+        self.board = [["_" for i in range(self._size)] for j in range(self._size)]
+        
+        # dict to store vehicles on a board
+        self._vehicles = {}
+        
+        # # the move to the exit
         # self.end_move = end_move
 
-    def grid_size(self, file):
-        #  Returns a 2D grid array with the starting positions of the car objects.
-        if "12x12" in file:
-            # size = 12
-            # # or is size = 144
-            # self.end_move = [12, 7]
-            return "12"
-        elif "6x6" in file:
-            # size = 6
-            # # or is size = 36
-            # # add end_move 
-            # self.end_move = [6, 3]
-            return "6"
-        elif "9x9" in file:
-            # size = 9 
-            # # or is size = 81
-            # self.end_move = [9, 5]
-            return "9"
-        else:
-            return "Try new size of board"
+    def load_vehicle_dict(self, file):
+        """Load all vehicles from the csv file and store them in a dictionary."""
 
-    def create_grid(self, size):
-        
-        # Creates a lists with underscored that matches the size of the board
-        empty_board = [['_' for _ in range(size)] for _ in range(size)]
-        empty_board = ("\n".join([str(row) for row in empty_board]))
+        # initialize list to store car ids
+        car_ids = []
 
-        # Add cars to grid
-        # Load cars
-        # Loop through cars
-        # check orientation
-        # check lenght
-        # add car in array 
+        with open(file, "r") as csv_file:
+            # create dict with vehicle info
+            csv_reader = csv.DictReader(csv_file, delimiter = ",") # try without delimiter
 
+            # create vehicle for each row in file
+            for row in csv_reader:
+                # create vehicle
+                vehicle = Vehicle(row["car"], int(row["row"]), int(row["col"]), row["orientation"], int(row["length"]))
+                # print(vehicle)
 
+                # add each vehicle to a dict
+                self._vehicles[row["car"]] = vehicle
 
-        
+                # add car ids to list
+                car_ids.append(row["car"])
+
+        # print(car_ids)
+        # print(self._vehicles)
+
+    def __str__(self):
+        return f"Board -> Width: {self._size}, Height: {self._size} \n {self.board}"
