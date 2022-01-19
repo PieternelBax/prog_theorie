@@ -20,12 +20,8 @@ def main():
     grid_object = Grid(size)
 
     grid_object.load_vehicle_dict(file.csvfile)
-<<<<<<< HEAD
-    grid_object.load_vehicle(file.csvfile)
-=======
     grid_object.load_cars(file.csvfile)
     print(grid_object.board)
->>>>>>> 700d668a644b8796c1538fd1a4d29c7e428636e7
     # print(grid_object._vehicles)
 
 
