@@ -9,4 +9,4 @@ class Vehicle(object):
 
 
     def __str__(self):
-        return f"Car: {self._id} Orientation: {self._orientation} Row: {self._row} Column: {self._col} Length: {self._length}" 
+        return f"Vehicle: {self._id} Orientation: {self._orientation} Row: {self._row} Column: {self._col} Length: {self._length}" 
