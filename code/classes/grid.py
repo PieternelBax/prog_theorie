@@ -70,23 +70,8 @@ class Grid(object):
                     self._board[car_dict[car]._row][car_dict[car]._col - 1 ] = car_dict[car]._id
                     self._board[car_dict[car]._row + 1][car_dict[car]._col - 1 ] = car_dict[car]._id
         
-<<<<<<< HEAD
-        print(self._board)
-=======
         # print(self._board)
         pprint.pprint(self._board, compact=True, width=50)
-
->>>>>>> 5065bb08dc0fd3f4f752d458996d7b89ed4cfd68
-                    
-            # Add cars to grid
-            # Load cars
-            # Loop through cars
-            # check orientation
-            # check lenght
-            # add car in array
-
-
-
 
     def __str__(self):
         return f"Board -> Width: {self._size}, Height: {self._size} \n {self.board}"
