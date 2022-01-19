@@ -65,8 +65,7 @@ class Grid(object):
         
     def visualize_grid(self):
         """Print grid with cars."""
-        return pprint.pprint(self._grid, compact=True, width=80)
-        
+        print("\n".join([str(row) for row in self._grid]))
 
     def __str__(self):
         return f"Board -> Width: {self._size}, Height: {self._size} \n {self._grid}"
