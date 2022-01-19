@@ -1,8 +1,5 @@
 # setting up the grid for Rush Hour
-from venv import create
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib.colors import LogNorm
+from code.classes.vehicle import Vehicle
 
 class Grid():
     # load the file (in this case: source_file)
@@ -36,7 +33,7 @@ class Grid():
         
         # Creates a lists with underscored that matches the size of the board
         empty_board = [['_' for _ in range(size)] for _ in range(size)]
-        return ("\n".join([str(row) for row in empty_board]))
+        empty_board = ("\n".join([str(row) for row in empty_board]))
 
         # Add cars to grid
         # Load cars
