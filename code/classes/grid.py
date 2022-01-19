@@ -33,9 +33,18 @@ class Grid():
             return "Try new size of board"
 
     def create_grid(self, size):
+        
+        # Creates a lists with underscored that matches the size of the board
         empty_board = [['_' for _ in range(size)] for _ in range(size)]
         return ("\n".join([str(row) for row in empty_board]))
-        
+
+        # Add cars to grid
+        # Load cars
+        # Loop through cars
+        # check orientation
+        # check lenght
+        # add car in array 
+
 
 
         
