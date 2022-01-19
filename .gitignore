@@ -141,3 +141,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+code/classes/__pycache__/grid.cpython-39.pyc
