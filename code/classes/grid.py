@@ -1,7 +1,7 @@
 from enum import auto
 from matplotlib.colors import LogNorm
 from code.classes.vehicle import Vehicle
-# import code.loader as loader
+import pprint
 import matplotlib.pyplot as plt
 import numpy as np
 import csv
@@ -74,7 +74,7 @@ class Grid(object):
                     self._board[vehicle_dict[vehicle]._row][vehicle_dict[vehicle]._col - 1 ] = vehicle_dict[vehicle]._id
                     self._board[vehicle_dict[vehicle]._row + 1][vehicle_dict[vehicle]._col - 1 ] = vehicle_dict[vehicle]._id
         
-        print(self._board)
+        pprint.pprint(self._board, compact=True, width=50)
         
 
     def __str__(self):
