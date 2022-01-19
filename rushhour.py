@@ -21,6 +21,7 @@ def main():
 
     grid_object.load_vehicle_dict(file.csvfile)
     grid_object.load_cars(file.csvfile)
+    print(grid_object.board)
     # print(grid_object._vehicles)
 
 

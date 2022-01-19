@@ -1,3 +1,4 @@
+from enum import auto
 from matplotlib.colors import LogNorm
 from code.classes.vehicle import Vehicle
 # import code.loader as loader
@@ -53,29 +54,23 @@ class Grid(object):
             # print(car_dict[car]._col)
             if car_dict[car]._orientation == "H":
                 if car_dict[car]._length == 2:
-                    col_place = car_dict[car]._col - 1 
-                    col_place2 = car_dict[car]._col
-
-                    row_place = car_dict[car]._row - 1
+                    self._board[car_dict[car]._row - 1][car_dict[car]._col - 1 ] = car_dict[car]._id
+                    self._board[car_dict[car]._row - 1][car_dict[car]._col] = car_dict[car]._id
                 else:
-                    col_place = car_dict[car]._col - 1 
-                    col_place2 = car_dict[car]._col 
-                    col_place3 = car_dict[car]._col + 1
-
-                    row_place = car_dict[car]._row - 1
+                    self._board[car_dict[car]._row - 1][car_dict[car]._col - 1 ] = car_dict[car]._id
+                    self._board[car_dict[car]._row - 1][car_dict[car]._col] = car_dict[car]._id
+                    self._board[car_dict[car]._row - 1][car_dict[car]._col + 1] = car_dict[car]._id
             else:
                 if car_dict[car]._length == 2:
-                    col_place = car_dict[car]._col - 1 
-
-                    row_place = car_dict[car]._row - 1
-                    row_place2 = car_dict[car]._row
+                    self._board[car_dict[car]._row - 1][car_dict[car]._col - 1 ] = car_dict[car]._id
+                    self._board[car_dict[car]._row][car_dict[car]._col - 1 ] = car_dict[car]._id
+                    
                 else:
-                    col_place = car_dict[car]._col - 1 
-
-                    row_place = car_dict[car]._row - 1
-                    row_place2 = car_dict[car]._row
-                    row_place3 = car_dict[car]._row + 1
-
+                    self._board[car_dict[car]._row - 1][car_dict[car]._col - 1 ] = car_dict[car]._id
+                    self._board[car_dict[car]._row][car_dict[car]._col - 1 ] = car_dict[car]._id
+                    self._board[car_dict[car]._row + 1][car_dict[car]._col - 1 ] = car_dict[car]._id
+        
+        print(self._board)
                     
             # Add cars to grid
             # Load cars
