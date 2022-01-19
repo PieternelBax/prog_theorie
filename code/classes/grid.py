@@ -1,7 +1,7 @@
 from enum import auto
 from matplotlib.colors import LogNorm
 from code.classes.vehicle import Vehicle
-# import code.loader as loader
+import pprint
 import matplotlib.pyplot as plt
 import numpy as np
 import csv
@@ -70,7 +70,13 @@ class Grid(object):
                     self._board[car_dict[car]._row][car_dict[car]._col - 1 ] = car_dict[car]._id
                     self._board[car_dict[car]._row + 1][car_dict[car]._col - 1 ] = car_dict[car]._id
         
+<<<<<<< HEAD
         print(self._board)
+=======
+        # print(self._board)
+        pprint.pprint(self._board, compact=True, width=50)
+
+>>>>>>> 5065bb08dc0fd3f4f752d458996d7b89ed4cfd68
                     
             # Add cars to grid
             # Load cars

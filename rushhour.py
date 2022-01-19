@@ -2,6 +2,7 @@ from code.classes.grid import Grid
 # import code.loader as loader
 import matplotlib.pyplot as plt
 import pandas as pd
+import pprint
 import argparse
 import re
 
@@ -17,7 +18,6 @@ def main():
 
     # create grid object
     grid_object = Grid(size)
-    # print(grid_object.board)
 
     grid_object.load_vehicle_dict(file.csvfile)
     grid_object.load_cars(file.csvfile)
