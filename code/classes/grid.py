@@ -1,6 +1,6 @@
 from matplotlib.colors import LogNorm
 from code.classes.vehicle import Vehicle
-# import code.loader as loader
+import pprint
 import matplotlib.pyplot as plt
 import numpy as np
 import csv
@@ -69,7 +69,8 @@ class Grid(object):
                     self._board[car_dict[car]._row][car_dict[car]._col - 1 ] = car_dict[car]._id
                     self._board[car_dict[car]._row + 1][car_dict[car]._col - 1 ] = car_dict[car]._id
         
-        print(self._board)
+        # print(self._board)
+        pprint.pprint(self._board, compact=True, width=50)
 
                     
             # Add cars to grid
