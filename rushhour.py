@@ -14,17 +14,13 @@ def main():
 
     # get grid size from file name
     size = int(re.findall(r'[0-9]+', f"{file.csvfile}")[0])
-    # print(width)
-
-    # print(height)
 
     # create grid object
     grid_object = Grid(size)
-    print(grid_object.board)
+    # print(grid_object.board)
 
-
-    # grid_object.load_vehicle_dict(file.csvfile)
-
+    grid_object.load_vehicle_dict(file.csvfile)
+    grid_object.load_cars(file.csvfile)
     # print(grid_object._vehicles)
 
 
