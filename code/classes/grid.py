@@ -67,5 +67,14 @@ class Grid(object):
         """Print grid with cars."""
         print("\n".join([str(row) for row in self._grid]))
 
+    def move(self):
+        pass
+        # check horizontaal vs verticaal
+        # check of buren == _ anders illegale move
+        # Geen illegale move dan coordinaten opslaan in lijst
+        # Maak huidige plaats _
+        # Opgeslagen coordinaten aanpassen naar coordinaten van richting
+        # Terug plaatsen in lijst
+
     def __str__(self):
         return f"Board -> Width: {self._size}, Height: {self._size} \n {self._grid}"
