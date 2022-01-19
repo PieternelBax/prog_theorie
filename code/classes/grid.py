@@ -1,3 +1,4 @@
+from enum import auto
 from matplotlib.colors import LogNorm
 from code.classes.vehicle import Vehicle
 # import code.loader as loader
@@ -75,17 +76,6 @@ class Grid(object):
         
         print(self._board)
         
-
-                    
-            # Add cars to grid
-            # Load cars
-            # Loop through cars
-            # check orientation
-            # check lenght
-            # add car in array
-
-
-
 
     def __str__(self):
         return f"Board -> Width: {self._size}, Height: {self._size} \n {self.board}"
