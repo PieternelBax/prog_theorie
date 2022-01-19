@@ -26,7 +26,7 @@ def main():
     grid = grid_object.create_grid(int(grid_size))
 
     # print(grid_size)
-    # print(grid)
+    print(grid)
 
     # create vehicle objects
     create_vehicle(file.csvfile)
@@ -42,7 +42,7 @@ def create_vehicle(file):
             # create vehicle
             vehicle = Vehicle(row["car"], row["row"], row["col"], row["orientation"], row["length"])
 
-            print(vehicle)
+            #print(vehicle)
 
 
 # parser for command line
