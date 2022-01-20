@@ -84,9 +84,9 @@ class Grid(object):
                     self._grid[row_count][col - 1] = vehicle_id
                     self._grid[row_count][col + self._vehicles[vehicle_id]._length - 1] = "_"
                     self.visualize_grid()
-                elif direction == "right" and self._grid[row_count][col + 1] == "_":
-                    self._grid[row_count][col + 1] = vehicle_id
-                    self._grid[row_count][col - self._vehicles[vehicle_id]._length + 1] = "_"
+                elif direction == "right" and self._grid[row_count][col + self._vehicles[vehicle_id]._length] == "_":
+                    self._grid[row_count][col + self._vehicles[vehicle_id]._length] = vehicle_id
+                    self._grid[row_count][col] = "_"
                     self.visualize_grid()
             elif vehicle_id in row and self._vehicles[vehicle_id]._orientation == "V":
                 # store column
@@ -95,15 +95,12 @@ class Grid(object):
                     self._grid[row_count - 1][col] = vehicle_id
                     self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
                     self.visualize_grid()
-                elif direction == "down" and self._grid[row_count + 1][col] == "_":
-                    self._grid[row_count + 1][col] = vehicle_id
-                    self._grid[row_count - self._vehicles[vehicle_id]._length + 1][col] = "_"
+                elif direction == "down" and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_":
+                    self._grid[row_count + self._vehicles[vehicle_id]._length][col] = vehicle_id
+                    self._grid[row_count][col] = "_"
                     self.visualize_grid()
             elif vehicle_id not in row:
                 row_count += 1
-
-                # if found stop program
-                # print(f"row: {row_count} col: {col}")
 
         # Opgeslagen coordinaten aanpassen naar coordinaten van richting
         # Terug plaatsen in lijst
