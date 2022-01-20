@@ -82,11 +82,9 @@ class Grid(object):
                 elif direction == "right" and self._grid[row_count][col + 1] == "_":
                     self._grid[row_count][col + 1] = vehicle_id
                     self._grid[row_count][col - self._vehicles[vehicle_id]._length + 1] = "_"
-                    # self.visualize_grid()
-
+                    self.visualize_grid()
                 else:
                     return False
-                
                 # if found stop program
                 # print(f"row: {row_count} col: {index}")
                 # check huidige coordinaten
@@ -96,10 +94,11 @@ class Grid(object):
                 if direction == "up" and self._grid[row_count - 1][col] == "_":
                     self._grid[row_count - 1][col] = vehicle_id
                     self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
-                    # self.visualize_grid()
+                    self.visualize_grid()
                 elif direction == "down" and self._grid[row_count + 1][col] == "_":
                     self._grid[row_count + 1][col] = vehicle_id
                     self._grid[row_count - self._vehicles[vehicle_id]._length + 1][col] = "_"
+                    self.visualize_grid()
                 else:
                     return False
                 
