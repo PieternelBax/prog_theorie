@@ -89,7 +89,6 @@ class Grid(object):
                     self._grid[row_count][col] = "_"
                     self.visualize_grid()
             elif vehicle_id in row and self._vehicles[vehicle_id]._orientation == "V":
-                # store column
                 col = row.index(vehicle_id)
                 if direction == "up" and self._grid[row_count - 1][col] == "_":
                     self._grid[row_count - 1][col] = vehicle_id
