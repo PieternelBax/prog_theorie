@@ -20,6 +20,9 @@ def main():
     # show visual of grid
     grid_object.visualize_grid()
 
+    #move
+    grid_object.move()
+
 
 # parser for command line
 if __name__ == '__main__':

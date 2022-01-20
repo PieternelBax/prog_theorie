@@ -1,5 +1,4 @@
 from code.classes.vehicle import Vehicle
-import pprint
 import csv
 
 class Grid(object):
@@ -68,9 +67,27 @@ class Grid(object):
         print("\n".join([str(row) for row in self._grid]))
 
     def move(self):
-        pass
+        given_vehicle_id = 'J'
+
         # check horizontaal vs verticaal
-        # check of buren == _ anders illegale move
+        if self._vehicles[given_vehicle_id]._orientation == "H":
+            # find row with count
+            row_count = 0
+            
+            for row in self._grid:
+                if given_vehicle_id in row:
+                    index = row.index(given_vehicle_id)
+                    # if found stop program
+                    print('index:', index, 'row index:', row_count)
+                    # check huidige coordinaten
+                else:
+                    row_count += 1
+            # check of buren == _ anders illegale move
+            
+        else:
+            print('noo')
+        
+        
         # Geen illegale move dan coordinaten opslaan in lijst
         # Maak huidige plaats _
         # Opgeslagen coordinaten aanpassen naar coordinaten van richting
