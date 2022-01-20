@@ -1,9 +1,5 @@
 import random
 
-from pyparsing import col
-
-from code.classes.grid import Grid
-
 # victory end point
 # coordinate x = row nr of vehicle X
 # coordinate y = last row index of vehicle x (-1 or -2)
@@ -24,10 +20,3 @@ def random_solver(move, vehicle_id, grid_size, grid_object):
 
         # choose random move to make
         # move = random.choice(list of moves)
-    
-    # show current grid
-    current_grid = ""
-
-    for row in range(grid_size):
-        for col in range(grid_size):
-            current_grid += grid_object._grid[row][col]

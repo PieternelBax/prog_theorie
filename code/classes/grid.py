@@ -10,9 +10,6 @@ class Grid(object):
         # dict to store vehicles on a board
         self._vehicles = {}
         self.winning_move
-        
-        # # the move to the exit
-        # self.end_move = end_move
 
     def win_red_car(self, file):
         if "6x6" in file:
