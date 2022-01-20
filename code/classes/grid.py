@@ -66,23 +66,44 @@ class Grid(object):
         """Print grid with cars."""
         print("\n".join([str(row) for row in self._grid]))
 
-    def move(self):
-        given_vehicle_id = 'J'
+    def move(self, direction,vehicle_id):
+        # find row with count
+        row_count = 0
+        
+        for row in self._grid:
+            # check horizontaal vs verticaal
+            if vehicle_id in row and self._vehicles[vehicle_id]._orientation == "H":
+                # store column
+                col = row.index(vehicle_id)
+                if direction == "left" and self._grid[row_count][col - 1] == "_":
+                    self._grid[row_count][col - 1] = vehicle_id
+                    self._grid[row_count][col + self._vehicles[vehicle_id]._length - 1] = "_"
+                    self.visualize_grid()
+                elif direction == "right" and self._grid[row_count][col + 1] == "_":
+                    self._grid[row_count][col + 1] = vehicle_id
+                    self._grid[row_count][col - self._vehicles[vehicle_id]._length + 1] = "_"
+                    # self.visualize_grid()
 
-        # check horizontaal vs verticaal
-        if self._vehicles[given_vehicle_id]._orientation == "H":
-            # find row with count
-            row_count = 0
-            
-            for row in self._grid:
-                if given_vehicle_id in row:
-                    index = row.index(given_vehicle_id)
-                    # if found stop program
-                    print('index:', index, 'row index:', row_count)
-                    # check huidige coordinaten
                 else:
-                    row_count += 1
-            # check of buren == _ anders illegale move
+                    return False
+                
+                # if found stop program
+                # print(f"row: {row_count} col: {index}")
+                # check huidige coordinaten
+            else:
+                row_count += 1
+
+                if direction == "up" and self._grid[row_count - 1][col] == "_":
+                    self._grid[row_count - 1][col] = vehicle_id
+                    self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
+                    # self.visualize_grid()
+                elif direction == "down" and self._grid[row_count + 1][col] == "_":
+                    self._grid[row_count + 1][col] = vehicle_id
+                    self._grid[row_count - self._vehicles[vehicle_id]._length + 1][col] = "_"
+                else:
+                    return False
+                
+        # check of buren == _ anders illegale move
             
         else:
             print('noo')

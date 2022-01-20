@@ -18,10 +18,10 @@ def main():
     grid_object.load_vehicles(file.csvfile)
 
     # show visual of grid
-    grid_object.visualize_grid()
+    # grid_object.visualize_grid()
 
     #move
-    grid_object.move()
+    grid_object.move("left", "A")
 
 
 # parser for command line
