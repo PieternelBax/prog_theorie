@@ -21,7 +21,10 @@ def main():
     # grid_object.visualize_grid()
 
     #move
-    grid_object.move("left", "A")
+    grid_object.move("up", "F")
+        grid_object.move("down", "B")
+
+
 
 
 # parser for command line

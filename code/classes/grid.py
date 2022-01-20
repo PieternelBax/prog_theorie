@@ -67,6 +67,11 @@ class Grid(object):
         print("\n".join([str(row) for row in self._grid]))
 
     def move(self, direction,vehicle_id):
+        """
+        Checks if move in certain direction is possible, given a vehicle id.
+        If possible, vehicle moves one position in that direction and replaces previously
+        occupied spot with a "_".
+        """
         # find row with count
         row_count = 0
         
@@ -82,35 +87,24 @@ class Grid(object):
                 elif direction == "right" and self._grid[row_count][col + 1] == "_":
                     self._grid[row_count][col + 1] = vehicle_id
                     self._grid[row_count][col - self._vehicles[vehicle_id]._length + 1] = "_"
-                    # self.visualize_grid()
-
-                else:
-                    return False
-                
-                # if found stop program
-                # print(f"row: {row_count} col: {index}")
-                # check huidige coordinaten
-            else:
-                row_count += 1
-
+                    self.visualize_grid()
+            elif vehicle_id in row and self._vehicles[vehicle_id]._orientation == "V":
+                # store column
+                col = row.index(vehicle_id)
                 if direction == "up" and self._grid[row_count - 1][col] == "_":
                     self._grid[row_count - 1][col] = vehicle_id
                     self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
-                    # self.visualize_grid()
+                    self.visualize_grid()
                 elif direction == "down" and self._grid[row_count + 1][col] == "_":
                     self._grid[row_count + 1][col] = vehicle_id
                     self._grid[row_count - self._vehicles[vehicle_id]._length + 1][col] = "_"
-                else:
-                    return False
-                
-        # check of buren == _ anders illegale move
-            
-        else:
-            print('noo')
-        
-        
-        # Geen illegale move dan coordinaten opslaan in lijst
-        # Maak huidige plaats _
+                    self.visualize_grid()
+            elif vehicle_id not in row:
+                row_count += 1
+
+                # if found stop program
+                # print(f"row: {row_count} col: {col}")
+
         # Opgeslagen coordinaten aanpassen naar coordinaten van richting
         # Terug plaatsen in lijst
 
