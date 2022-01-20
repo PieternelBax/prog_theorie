@@ -9,9 +9,21 @@ class Grid(object):
         
         # dict to store vehicles on a board
         self._vehicles = {}
+        self.winning_move
         
         # # the move to the exit
         # self.end_move = end_move
+
+    def win_red_car(self, file):
+        if "6x6" in file:
+            # coordinates of exit
+            self.winning_move = ['X', [5, 2]]
+        elif "9x9" in file:
+            self.winning_move = ['X', [8, 4]]
+        elif "12x12" in file:
+            self.winning_move = ['X', [11, 5]]
+        else:
+            return False
 
     def load_vehicle_dict(self, file):
         """Load all vehicles from the csv file and store them in a dictionary."""
