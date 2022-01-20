@@ -63,8 +63,11 @@ class Grid(object):
         
         
     def visualize_grid(self):
-        """Print grid with cars."""
-        print("\n".join([str(row) for row in self._grid]))
+        """Prints string representation of grid with cars."""
+        for row in self._grid:
+            print(' '.join(map(str, row)))
+
+        # print("\n".join([str(row) for row in self._grid]))
 
     def move(self, direction,vehicle_id):
         """
@@ -76,30 +79,31 @@ class Grid(object):
         row_count = 0
         
         for row in self._grid:
-            # check horizontaal vs verticaal
-            if vehicle_id in row and self._vehicles[vehicle_id]._orientation == "H":
+            if vehicle_id in row:
                 # store column
                 col = row.index(vehicle_id)
-                if direction == "left" and self._grid[row_count][col - 1] == "_":
-                    self._grid[row_count][col - 1] = vehicle_id
-                    self._grid[row_count][col + self._vehicles[vehicle_id]._length - 1] = "_"
-                    self.visualize_grid()
-                elif direction == "right" and self._grid[row_count][col + self._vehicles[vehicle_id]._length] == "_":
-                    self._grid[row_count][col + self._vehicles[vehicle_id]._length] = vehicle_id
-                    self._grid[row_count][col] = "_"
-                    self.visualize_grid()
-            elif vehicle_id in row and self._vehicles[vehicle_id]._orientation == "V":
-                col = row.index(vehicle_id)
-                if direction == "up" and self._grid[row_count - 1][col] == "_":
-                    self._grid[row_count - 1][col] = vehicle_id
-                    self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
-                    self.visualize_grid()
-                elif direction == "down" and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_":
-                    self._grid[row_count + self._vehicles[vehicle_id]._length][col] = vehicle_id
-                    self._grid[row_count][col] = "_"
-                    self.visualize_grid()
-            elif vehicle_id not in row:
-                row_count += 1
+            # check horizontaal vs verticaal
+                if self._vehicles[vehicle_id]._orientation == "H":
+
+                    if direction == "left" and self._grid[row_count][col - 1] == "_":
+                        self._grid[row_count][col - 1] = vehicle_id
+                        self._grid[row_count][col + self._vehicles[vehicle_id]._length - 1] = "_"
+                        self.visualize_grid()
+                    elif direction == "right" and self._grid[row_count][col + self._vehicles[vehicle_id]._length] == "_":
+                        self._grid[row_count][col + self._vehicles[vehicle_id]._length] = vehicle_id
+                        self._grid[row_count][col] = "_"
+                        self.visualize_grid()
+                elif self._vehicles[vehicle_id]._orientation == "V":
+                    if direction == "up" and self._grid[row_count - 1][col] == "_":
+                        self._grid[row_count - 1][col] = vehicle_id
+                        self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
+                        self.visualize_grid()
+                    elif direction == "down" and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_":
+                        self._grid[row_count + self._vehicles[vehicle_id]._length][col] = vehicle_id
+                        self._grid[row_count][col] = "_"
+                        self.visualize_grid()
+            else:
+                    row_count += 1
 
         # Opgeslagen coordinaten aanpassen naar coordinaten van richting
         # Terug plaatsen in lijst

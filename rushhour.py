@@ -17,13 +17,13 @@ def main():
     # load cars on grid
     grid_object.load_vehicles(file.csvfile)
 
-    # show visual of grid
+    # show visual of grid with cars
     # grid_object.visualize_grid()
 
     #move
     # game 3
-    # grid_object.move("up", "F")
-    grid_object.move("down", "B")
+    grid_object.move("up", "F")
+    # grid_object.move("down", "B")
 
     # game 4
     # grid_object.move("right", "A")
