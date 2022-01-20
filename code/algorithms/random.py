@@ -5,6 +5,7 @@ import random
 # coordinate y = last row index of vehicle x (-1 or -2)
 
 # row 3 [0, 1, 2, 3, 4, 5]
+#  = 
 # index [0          -2,-1]
 
 # keep moving cars until vehicle id X is on index -1 -> while loop?

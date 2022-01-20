@@ -12,6 +12,7 @@ class Grid(object):
         self.winning_move
 
     def win_red_car(self, file):
+        """Checks if the red car (X) is at the exit coordinates."""
         if "6x6" in file:
             # coordinates of exit
             self.winning_move = ['X', [5, 2]]
@@ -38,9 +39,6 @@ class Grid(object):
                 # add each vehicle to a dict
                 self._vehicles[row["vehicle"]] = vehicle
 
-        # print(car_ids)
-        # print(self._vehicles["A"])
-        # print(self._vehicles.keys())
         return self._vehicles
 
     def load_vehicles(self, file):
@@ -111,7 +109,7 @@ class Grid(object):
                         self._grid[row_count - 1][col] = vehicle_id
                         self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
                         self.visualize_grid()
-                        return TRUE
+                        return True
                     elif direction == "down" and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_":
                         self._grid[row_count + self._vehicles[vehicle_id]._length][col] = vehicle_id
                         self._grid[row_count][col] = "_"
