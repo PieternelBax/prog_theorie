@@ -13,6 +13,7 @@ def main():
 
     # create grid object
     grid_object = Grid(size)
+    # print(grid_object._grid)
     
     # load cars on grid
     grid_object.load_vehicles(file.csvfile)
@@ -20,10 +21,18 @@ def main():
     # show visual of grid with cars
     # grid_object.visualize_grid()
 
-    #move
+    # move cars in grid
     # game 3
-    grid_object.move("up", "F")
-    # grid_object.move("down", "B")
+    grid_object.move("left", "A")
+    # grid_object.move("up", "F")
+    # game 3 (6x6) & 5 (9x9)
+    # grid_object.move("down", "E")
+    print("\n")
+    # print(grid_object._grid)
+    grid_object.move("left", "B")
+    # print(grid_object._grid)
+
+
 
     # game 4
     # grid_object.move("right", "A")

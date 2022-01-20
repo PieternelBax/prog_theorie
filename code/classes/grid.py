@@ -1,3 +1,4 @@
+from tkinter import TRUE
 from code.classes.vehicle import Vehicle
 import csv
 
@@ -51,11 +52,11 @@ class Grid(object):
                     self._grid[vehicle_dict[vehicle]._row - 1][vehicle_dict[vehicle]._col + 1] = vehicle_dict[vehicle]._id
             # if orientation is verticle
             else:
-                # if car length is equal to 2, add car to collumn + 1
+                # if car length is equal to 2, add car to column + 1
                 if vehicle_dict[vehicle]._length == 2:
                     self._grid[vehicle_dict[vehicle]._row - 1][vehicle_dict[vehicle]._col - 1 ] = vehicle_dict[vehicle]._id
                     self._grid[vehicle_dict[vehicle]._row][vehicle_dict[vehicle]._col - 1 ] = vehicle_dict[vehicle]._id
-                # if car length is equal to 3, add car to collumn + 2
+                # if car length is equal to 3, add car to column + 2
                 else:
                     self._grid[vehicle_dict[vehicle]._row - 1][vehicle_dict[vehicle]._col - 1 ] = vehicle_dict[vehicle]._id
                     self._grid[vehicle_dict[vehicle]._row][vehicle_dict[vehicle]._col - 1 ] = vehicle_dict[vehicle]._id
@@ -64,15 +65,15 @@ class Grid(object):
         
     def visualize_grid(self):
         """Prints string representation of grid with cars."""
-        for row in self._grid:
-            print(' '.join(map(str, row)))
+        # for row in self._grid:
+        #     print(' '.join(map(str, row)))
 
-        # print("\n".join([str(row) for row in self._grid]))
+        print("\n".join([str(row) for row in self._grid]))
 
     def move(self, direction,vehicle_id):
         """
         Checks if move in certain direction is possible, given a vehicle id.
-        If possible, vehicle moves one position in that direction and replaces previously
+        If possible, vehicle id gets inserted in open space and replaces previously
         occupied spot with a "_".
         """
         # find row with count
@@ -88,25 +89,31 @@ class Grid(object):
                     if direction == "left" and self._grid[row_count][col - 1] == "_":
                         self._grid[row_count][col - 1] = vehicle_id
                         self._grid[row_count][col + self._vehicles[vehicle_id]._length - 1] = "_"
+
                         self.visualize_grid()
+                        return True
                     elif direction == "right" and self._grid[row_count][col + self._vehicles[vehicle_id]._length] == "_":
                         self._grid[row_count][col + self._vehicles[vehicle_id]._length] = vehicle_id
                         self._grid[row_count][col] = "_"
                         self.visualize_grid()
+                        return True
                 elif self._vehicles[vehicle_id]._orientation == "V":
                     if direction == "up" and self._grid[row_count - 1][col] == "_":
                         self._grid[row_count - 1][col] = vehicle_id
                         self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
                         self.visualize_grid()
+                        return TRUE
                     elif direction == "down" and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_":
                         self._grid[row_count + self._vehicles[vehicle_id]._length][col] = vehicle_id
                         self._grid[row_count][col] = "_"
                         self.visualize_grid()
+                        return True
             else:
+                    # go to next row
                     row_count += 1
 
         # Opgeslagen coordinaten aanpassen naar coordinaten van richting
         # Terug plaatsen in lijst
 
     def __str__(self):
-        return f"Board -> Width: {self._size}, Height: {self._size} \n {self._grid}"
+        return f"Board -> Width: {self._size}, Height: {self._size} \n pprint(self._grid)"
