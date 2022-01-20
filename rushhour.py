@@ -22,7 +22,7 @@ def main():
 
     #move
     grid_object.move("up", "F")
-        grid_object.move("down", "B")
+    #grid_object.move("down", "B")
 
 
 

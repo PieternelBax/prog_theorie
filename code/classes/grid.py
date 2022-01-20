@@ -88,7 +88,6 @@ class Grid(object):
                     self._grid[row_count][col + 1] = vehicle_id
                     self._grid[row_count][col - self._vehicles[vehicle_id]._length + 1] = "_"
                     self.visualize_grid()
-<<<<<<< HEAD
                 else:
                     return False
                 # if found stop program
@@ -97,11 +96,6 @@ class Grid(object):
             else:
                 row_count += 1
 
-=======
-            elif vehicle_id in row and self._vehicles[vehicle_id]._orientation == "V":
-                # store column
-                col = row.index(vehicle_id)
->>>>>>> 231098a2b4c71e5647e8f7a6f77476ecca8d6b50
                 if direction == "up" and self._grid[row_count - 1][col] == "_":
                     self._grid[row_count - 1][col] = vehicle_id
                     self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
@@ -110,7 +104,6 @@ class Grid(object):
                     self._grid[row_count + 1][col] = vehicle_id
                     self._grid[row_count - self._vehicles[vehicle_id]._length + 1][col] = "_"
                     self.visualize_grid()
-<<<<<<< HEAD
                 else:
                     return False
                 
@@ -122,14 +115,6 @@ class Grid(object):
         
         # Geen illegale move dan coordinaten opslaan in lijst
         # Maak huidige plaats _
-=======
-            elif vehicle_id not in row:
-                row_count += 1
-
-                # if found stop program
-                # print(f"row: {row_count} col: {col}")
-
->>>>>>> 231098a2b4c71e5647e8f7a6f77476ecca8d6b50
         # Opgeslagen coordinaten aanpassen naar coordinaten van richting
         # Terug plaatsen in lijst
 
