@@ -1,4 +1,5 @@
 from code.classes.grid import Grid
+import code.algorithms.random as random_alg
 import argparse
 import re
 
@@ -13,33 +14,34 @@ def main():
 
     # create grid object
     grid_object = Grid(size)
-    # print(grid_object._grid)
-    
+
     # load cars on grid
     grid_object.load_vehicles(file.csvfile)
 
-    # show visual of grid with cars
-    # grid_object.visualize_grid()
+    # show visual of starting grid
+    grid_object.visualize_grid()
+
+    # run random algorithm
+    random_alg.random_solver(grid_object)
 
     # move cars in grid
     # game 3
-    grid_object.move("left", "A")
+    # grid_object.move("left", "A")
     # grid_object.move("up", "F")
+
     # game 3 (6x6) & 5 (9x9)
     # grid_object.move("down", "E")
-    print("\n")
+    # print("\n")
     # print(grid_object._grid)
-    grid_object.move("left", "B")
-    # print(grid_object._grid)
-
-
+    # grid_object.move("left", "B")
 
     # game 4
     # grid_object.move("right", "A")
     # grid_object.move("left", "K")
 
-
-
+    # print(grid_object._grid[grid_object._vehicles["X"]._row - 1][-1])
+    # grid_object.won()
+    # print(grid_object._vehicle_ids)
 
 
 # parser for command line
