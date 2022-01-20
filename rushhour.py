@@ -23,7 +23,7 @@ def main():
     #move
     # game 3
     # grid_object.move("up", "F")
-    grid_object.move("down", "B")
+    grid_object.move("left", "A")
 
     # game 4
     # grid_object.move("right", "A")
