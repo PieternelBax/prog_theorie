@@ -139,7 +139,7 @@ class Grid(object):
                         self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
                         # self.visualize_grid()
                         return True
-                    elif direction == "down" and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_" and not row_count + self._vehicles[vehicle_id]._length:
+                    elif direction == "down" and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_" and not row_count + self._vehicles[vehicle_id]._length > self._size:
                         self._grid[row_count + self._vehicles[vehicle_id]._length][col] = vehicle_id
                         self._grid[row_count][col] = "_"
                         # self.visualize_grid()

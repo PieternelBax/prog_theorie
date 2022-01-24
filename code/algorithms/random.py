@@ -13,19 +13,22 @@ def random_solver(grid_object):
     # check if red car is at the end point
     while not grid_object.won():
         # choose random vehicle to move
-        vehicle = "B" #random.choice(grid_object._vehicle_ids)
-        # print(vehicle)
+        vehicle = "B"#random.choice(grid_object._vehicle_ids)
+        #print(vehicle)
 
         # choose random move to make
-        move = "up" #random.choice(grid_object._moves)
-        # print(move)
+        move = "down" #random.choice(grid_object._moves)
+        #print(move)
 
         # check if move is possible to make
         if grid_object.move(move, vehicle) is True:
             print(f"Car {vehicle} moved {move}")
             print(f"Valid move made -> Vehicle {vehicle} moved {move}")
 
-            
+            print(grid_object.visualize_grid())
+        elif grid_object.move(move, vehicle) is False:
+            print(grid_object.visualize_grid())
+        else:
             print(grid_object.visualize_grid())
     
 # --------------
