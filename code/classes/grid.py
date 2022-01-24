@@ -1,4 +1,3 @@
-from tkinter import TRUE
 from code.classes.vehicle import Vehicle
 import csv
 
@@ -132,6 +131,8 @@ class Grid(object):
                         self._grid[row_count][col] = "_"
                         # self.visualize_grid()
                         return True
+                    else:
+                        return False
                 elif self._vehicles[vehicle_id]._orientation == "V":
                     if direction == "up" and self._grid[row_count - 1][col] == "_" and not [row_count - 1 < 0]:
                         self._grid[row_count - 1][col] = vehicle_id
@@ -143,11 +144,14 @@ class Grid(object):
                         self._grid[row_count][col] = "_"
                         # self.visualize_grid()
                         return True
+                    else:
+                        return False
                 # reset row count
                 row_count = 0
             else:
-                    # go to next row
-                    row_count += 1
+                # go to next row
+                row_count += 1
+                return False
 
 
     def __str__(self):
