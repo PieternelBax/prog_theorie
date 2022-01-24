@@ -121,24 +121,24 @@ class Grid(object):
                 col = row.index(vehicle_id)
                 # check orientation of vehicle
                 if self._vehicles[vehicle_id]._orientation == "H":
-                    if direction == "left" and self._grid[row_count][col - 1] == "_":
+                    if direction == "left" and self._grid[row_count][col - 1] == "_" and not col - 1 < 0:
                         self._grid[row_count][col - 1] = vehicle_id
                         self._grid[row_count][col + self._vehicles[vehicle_id]._length - 1] = "_"
 
                         # self.visualize_grid()
                         return True
-                    elif direction == "right" and self._grid[row_count][col + self._vehicles[vehicle_id]._length] == "_":
+                    elif direction == "right" and self._grid[row_count][col + self._vehicles[vehicle_id]._length] == "_" and not self._vehicles[vehicle_id]._length > self._size:
                         self._grid[row_count][col + self._vehicles[vehicle_id]._length] = vehicle_id
                         self._grid[row_count][col] = "_"
                         # self.visualize_grid()
                         return True
                 elif self._vehicles[vehicle_id]._orientation == "V":
-                    if direction == "up" and self._grid[row_count - 1][col] == "_":
+                    if direction == "up" and self._grid[row_count - 1][col] == "_" and not [row_count - 1 < 0]:
                         self._grid[row_count - 1][col] = vehicle_id
                         self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
                         # self.visualize_grid()
                         return True
-                    elif direction == "down" and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_":
+                    elif direction == "down" and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_" and not row_count + self._vehicles[vehicle_id]._length:
                         self._grid[row_count + self._vehicles[vehicle_id]._length][col] = vehicle_id
                         self._grid[row_count][col] = "_"
                         # self.visualize_grid()
