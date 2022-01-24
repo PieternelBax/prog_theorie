@@ -120,17 +120,18 @@ class Grid(object):
                 col = row.index(vehicle_id)
                 # check orientation of vehicle
                 if self._vehicles[vehicle_id]._orientation == "H":
-                    if direction == "left" and self._grid[row_count][col - 1] == "_" and not col - 1 < 0:
+                    if direction == "left" and self._grid[row_count][col - 1] == "_" and col - 1 < 0:
                         self._grid[row_count][col - 1] = vehicle_id
                         self._grid[row_count][col + self._vehicles[vehicle_id]._length - 1] = "_"
 
                         # self.visualize_grid()
                         return True
-                    elif direction == "right" and self._grid[row_count][col + self._vehicles[vehicle_id]._length] == "_" and not self._vehicles[vehicle_id]._length > self._size:
-                        self._grid[row_count][col + self._vehicles[vehicle_id]._length] = vehicle_id
-                        self._grid[row_count][col] = "_"
-                        # self.visualize_grid()
-                        return True
+                    elif direction == "right" and col + self._vehicles[vehicle_id]._length <= self._size:
+                        if self._grid[row_count][col + self._vehicles[vehicle_id]._length] == "_":
+                            self._grid[row_count][col + self._vehicles[vehicle_id]._length] = vehicle_id
+                            self._grid[row_count][col] = "_"
+                            # self.visualize_grid()
+                            return True
                     else:
                         return False
                 elif self._vehicles[vehicle_id]._orientation == "V":
@@ -139,11 +140,13 @@ class Grid(object):
                         self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
                         # self.visualize_grid()
                         return True
-                    elif direction == "down" and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_" and not row_count + self._vehicles[vehicle_id]._length > self._size:
-                        self._grid[row_count + self._vehicles[vehicle_id]._length][col] = vehicle_id
-                        self._grid[row_count][col] = "_"
-                        # self.visualize_grid()
-                        return True
+                    elif direction == "down" and row_count + self._vehicles[vehicle_id]._length <= self._size:
+                        if self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_":
+
+                            self._grid[row_count + self._vehicles[vehicle_id]._length][col] = vehicle_id
+                            self._grid[row_count][col] = "_"
+                            # self.visualize_grid()
+                            return True
                     else:
                         return False
                 # reset row count
@@ -151,7 +154,6 @@ class Grid(object):
             else:
                 # go to next row
                 row_count += 1
-                return False
 
 
     def __str__(self):
