@@ -16,7 +16,7 @@ def random_solver(grid_object):
         if grid_object.move(move, vehicle):
             # print(f"Valid move made -> Vehicle {vehicle} moved {move}")
 
-            # grid_object.visualize_grid()
+            grid_object.visualize_grid()
 
             moves_made.append(f"{vehicle} moved {move}")
 
