@@ -6,16 +6,17 @@ class Grid(object):
         self._size = size
         # initial empty grid
         self._grid = [["_" for i in range(self._size)] for j in range(self._size)]
+        
         # dict to store vehicles on a board
         self._vehicles = {}
+
         # list of all possible moves 
         self._moves = ["right", "left", "up", "down"]
-        # list of vehicle dict keys (id's)
+        
+        # list of vehicle dict keys (IDs)
         self._vehicle_ids = []
 
-        # self.winning_move
 
-# --------------------------------------------- New code
     def create_id_list(self):
         """
         Returns a list with all keys (vehicle IDs) from the vehicle dictionary.
@@ -29,30 +30,15 @@ class Grid(object):
         """Checks if the red car (X) is at the end of the row that contains the red car."""
         # coordinate x = row nr of vehicle X
         # coordinate y = last row index of vehicle x (-1)
-
         if self._grid[self._vehicles["X"]._row - 1][-1] == "X":
-            # print("Letter found")
             return True
 
-# ------------------------------------------------ End new code
-
-# ------------------------------------------------ Original code
-    #     if "6x6" in file:
-    #         # coordinates of exit
-    #         self.winning_move = ['X', [5, 2]]
-    #     elif "9x9" in file:
-    #         self.winning_move = ['X', [8, 4]]
-    #     elif "12x12" in file:
-    #         self.winning_move = ['X', [11, 5]]
-    #     else:
-    #         return False
-# ------------------------------------------------ End original code
 
     def load_vehicle_dict(self, file):
         """Load all vehicles from the csv file and store them in a dictionary."""
         with open(file, "r") as csv_file:
             # create dict with vehicle info
-            csv_reader = csv.DictReader(csv_file, delimiter = ",") # try without delimiter
+            csv_reader = csv.DictReader(csv_file)
 
             # create vehicle for each row in file
             for row in csv_reader:
@@ -67,6 +53,7 @@ class Grid(object):
 
     def load_vehicles(self, file):
         """Load vehicles on grid."""
+        # get dict with vehicles
         vehicle_dict = self.load_vehicle_dict(file)
 
         # call method to create list of vehicle IDs
@@ -118,42 +105,36 @@ class Grid(object):
             if vehicle_id in row:
                 # store column
                 col = row.index(vehicle_id)
-                # check orientation of vehicle
-                if self._vehicles[vehicle_id]._orientation == "H":
-                    if direction == "left" and self._grid[row_count][col - 1] == "_" and col - 1 < 0:
-                        self._grid[row_count][col - 1] = vehicle_id
-                        self._grid[row_count][col + self._vehicles[vehicle_id]._length - 1] = "_"
-
-                        # self.visualize_grid()
-                        return True
-                    elif direction == "right" and col + self._vehicles[vehicle_id]._length <= self._size:
-                        if self._grid[row_count][col + self._vehicles[vehicle_id]._length] == "_":
+                try:
+                    # check orientation of vehicle
+                    if self._vehicles[vehicle_id]._orientation == "H":
+                        # check direction if move is within borders of grid and if move is possible
+                        if direction == "left" and not col - 1 < 0 and self._grid[row_count][col - 1] == "_" :
+                            self._grid[row_count][col - 1] = vehicle_id
+                            self._grid[row_count][col + self._vehicles[vehicle_id]._length - 1] = "_"
+                            
+                            return True
+                        elif direction == "right" and not col + self._vehicles[vehicle_id]._length > self._size and self._grid[row_count][col + self._vehicles[vehicle_id]._length] == "_" :
                             self._grid[row_count][col + self._vehicles[vehicle_id]._length] = vehicle_id
                             self._grid[row_count][col] = "_"
-                            # self.visualize_grid()
+                            
                             return True
-                    else:
-                        return False
-                elif self._vehicles[vehicle_id]._orientation == "V":
-                    if direction == "up" and self._grid[row_count - 1][col] == "_" and not [row_count - 1 < 0]:
-                        self._grid[row_count - 1][col] = vehicle_id
-                        self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
-                        # self.visualize_grid()
-                        return True
-                    elif direction == "down" and row_count + self._vehicles[vehicle_id]._length <= self._size:
-                        if self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_":
-
+                    elif self._vehicles[vehicle_id]._orientation == "V":
+                        if direction == "up" and not row_count - 1 < 0 and self._grid[row_count - 1][col] == "_" :
+                            self._grid[row_count - 1][col] = vehicle_id
+                            self._grid[row_count + self._vehicles[vehicle_id]._length - 1][col] = "_"
+                            
+                            return True
+                        elif direction == "down" and not row_count + self._vehicles[vehicle_id]._length > self._size and self._grid[row_count + self._vehicles[vehicle_id]._length][col] == "_" :
                             self._grid[row_count + self._vehicles[vehicle_id]._length][col] = vehicle_id
                             self._grid[row_count][col] = "_"
-                            # self.visualize_grid()
+                            
                             return True
-                    else:
-                        return False
-                # reset row count
-                row_count = 0
+                except IndexError:
+                    pass
             else:
-                # go to next row
-                row_count += 1
+                    # go to next row
+                    row_count += 1
 
 
     def __str__(self):

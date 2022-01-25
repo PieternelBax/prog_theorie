@@ -24,25 +24,6 @@ def main():
     # run random algorithm
     random_alg.random_solver(grid_object)
 
-    # move cars in grid
-    # game 3
-    # grid_object.move("left", "A")
-    # grid_object.move("up", "F")
-
-    # game 3 (6x6) & 5 (9x9)
-    # grid_object.move("down", "E")
-    # print("\n")
-    # print(grid_object._grid)
-    # grid_object.move("left", "B")
-
-    # game 4
-    # grid_object.move("right", "A")
-    # grid_object.move("left", "K")
-
-    # print(grid_object._grid[grid_object._vehicles["X"]._row - 1][-1])
-    # grid_object.won()
-    # print(grid_object._vehicle_ids)
-
 
 # parser for command line
 if __name__ == '__main__':
