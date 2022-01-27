@@ -11,18 +11,21 @@ def main():
 
     # get grid size from file name
     size = int(re.findall(r'[0-9]+', f"{file.csvfile}")[0])
+    
+    # get results 
+    total_iterations = 200
+    for i in range(total_iterations):
+        # create grid object
+        grid_object = Grid(size)
 
-    # create grid object
-    grid_object = Grid(size)
+        # load cars on grid
+        grid_object.load_vehicles(file.csvfile)
 
-    # load cars on grid
-    grid_object.load_vehicles(file.csvfile)
+        # show visual of starting grid
+        # grid_object.visualize_grid()
 
-    # show visual of starting grid
-    grid_object.visualize_grid()
-
-    # run random algorithm
-    random_alg.random_solver(grid_object)
+        # run random algorithm
+        random_alg.random_solver(grid_object)
 
 
 # parser for command line

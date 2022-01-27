@@ -86,10 +86,6 @@ class Grid(object):
                     self._grid[vehicle_dict[vehicle]._row + 1][vehicle_dict[vehicle]._col - 1 ] = vehicle_dict[vehicle]._id
         
 
-    def visualize_grid(self):
-        """Prints string representation of grid with cars."""
-        for row in self._grid:
-            print(' '.join(map(str, row)))
 
         # print("\n".join([str(row) for row in self._grid]))
 
