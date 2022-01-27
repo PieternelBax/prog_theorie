@@ -15,13 +15,11 @@ def random_solver(grid_object):
         # check if move is possible to make
         if grid_object.move(move, vehicle):
             # print(f"Valid move made -> Vehicle {vehicle} moved {move}")
+            # grid_object.visualize_grid()
 
-            grid_object.visualize_grid()
+            moves_made.append(f"{vehicle}, {move}")
 
-            moves_made.append(f"{vehicle} moved {move}")
-
-    print("\n")
-    print("Solved puzzle:")
+    print(f"\nSolved puzzle:")
     # visualize solved puzzle
     grid_object.visualize_grid()
 
