@@ -24,6 +24,8 @@ def main():
     # run random algorithm
     random_alg.random_solver(grid_object)
 
+    # run breadth first algorithm
+
 
 # parser for command line
 if __name__ == '__main__':
