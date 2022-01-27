@@ -13,7 +13,7 @@ def main():
     size = int(re.findall(r'[0-9]+', f"{file.csvfile}")[0])
     
     # get results 
-    total_iterations = 200
+    total_iterations = 1
     for i in range(total_iterations):
         # create grid object
         grid_object = Grid(size)
@@ -22,7 +22,7 @@ def main():
         grid_object.load_vehicles(file.csvfile)
 
         # show visual of starting grid
-        # grid_object.visualize_grid()
+        grid_object.visualize_grid()
 
         # run random algorithm
         random_alg.random_solver(grid_object)

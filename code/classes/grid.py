@@ -88,6 +88,12 @@ class Grid(object):
 
         # print("\n".join([str(row) for row in self._grid]))
 
+    def visualize_grid(self):
+        """Prints string representation of grid with cars."""
+        for row in self._grid:
+            print(' '.join(map(str, row)))
+
+        # print("\n".join([str(row) for row in self._grid]))
 
     def move(self, direction, vehicle_id):
         """
