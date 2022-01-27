@@ -1,5 +1,6 @@
 from code.classes.grid import Grid
 import code.algorithms.random as random_alg
+import code.algorithms.breadth_first as breadth_first
 import argparse
 import re
 
@@ -22,6 +23,10 @@ def main():
 
     # run random algorithm
     random_alg.random_solver(grid_object)
+
+    # run breadth first algorithm
+    breadth_first.breadth_first_solver(grid_object)
+
 
 
 if __name__ == '__main__':
