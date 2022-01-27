@@ -6,16 +6,18 @@ class Grid(object):
         self._size = size
 
         # initial empty grid
-        self._grid = [["_" for i in range(self._size)] for j in range(self._size)]
+        self._grid = [["_" for _ in range(self._size)] for _ in range(self._size)]
 
         # dict to store vehicles on a board
         self._vehicles = {}
 
+        # list of vehicle dict keys (id's)
+        self._vehicle_ids = []
+
         # list of all possible moves 
         self._moves = ["right", "left", "up", "down"]
 
-        # list of vehicle dict keys (id's)
-        self._vehicle_ids = []
+        
 
 
     def create_id_list(self):
@@ -29,9 +31,6 @@ class Grid(object):
 
     def won(self):
         """Checks if the red car (X) is at the end of the row that contains the red car."""
-        # coordinate x = row nr of vehicle X
-        # coordinate y = last row index of vehicle x (-1)
-
         if self._grid[self._vehicles["X"]._row - 1][-1] == "X":
             return True
 
@@ -62,7 +61,7 @@ class Grid(object):
         self.create_id_list()
 
         for vehicle in vehicle_dict:
-            # if orientation is horizontal
+            # orientation is horizontal
             if vehicle_dict[vehicle]._orientation == "H":
                 # if length is 2 add the car to row + 1
                 if vehicle_dict[vehicle]._length == 2:
@@ -73,7 +72,7 @@ class Grid(object):
                     self._grid[vehicle_dict[vehicle]._row - 1][vehicle_dict[vehicle]._col - 1 ] = vehicle_dict[vehicle]._id
                     self._grid[vehicle_dict[vehicle]._row - 1][vehicle_dict[vehicle]._col] = vehicle_dict[vehicle]._id
                     self._grid[vehicle_dict[vehicle]._row - 1][vehicle_dict[vehicle]._col + 1] = vehicle_dict[vehicle]._id
-            # if orientation is verticle
+            # orientation is verticle
             else:
                 # if car length is equal to 2, add car to column + 1
                 if vehicle_dict[vehicle]._length == 2:
@@ -136,4 +135,4 @@ class Grid(object):
 
 
     def __str__(self):
-        return f"Board -> Width: {self._size}, Height: {self._size} \n pprint(self._grid)"
+        return f"Board -> Width: {self._size}, Height: {self._size} \n {self._grid}"
