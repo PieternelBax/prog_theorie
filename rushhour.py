@@ -1,6 +1,7 @@
 from code.classes.grid import Grid
 import code.algorithms.random as random_alg
 import code.algorithms.breadth_first as breadth_first
+import code.algorithms.breadth_first_search as breadth_first_search
 import argparse
 import re
 
@@ -25,7 +26,9 @@ def main():
         grid_object.visualize_grid()
 
         # run random algorithm
-        random_alg.random_solver(grid_object)
+        # random_alg.random_solver(grid_object)
+        # run breadth first
+        #--breadth_first.breadth_first_search(grid_object)
 
     # run breadth first algorithm
     breadth_first.breadth_first_solver(grid_object)
