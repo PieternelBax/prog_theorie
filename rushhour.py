@@ -1,26 +1,31 @@
 from code.classes.grid import Grid
 import code.algorithms.random as random_alg
 import code.algorithms.breadth_first as breadth_first
+<<<<<<< HEAD
 import code.algorithms.breadth_first_search as breadth_first_search
+=======
+import pandas as pd
+>>>>>>> c1a1283f37318d3757cd146560c551a8f2adf7df
 import argparse
 import re
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('csvfile', nargs='?', help="Add game csv path here", default="data/Rushhour6x6_1.csv")
-    file = parser.parse_args()
+    parser.add_argument('csvfile', default="data/Rushhour6x6_1.csv", help="Add game csv path here")
+    args = parser.parse_args()
 
     # get grid size from file name
-    size = int(re.findall(r'[0-9]+', f"{file.csvfile}")[0])
+    size = int(re.findall(r'[0-9]+', f"{args.csvfile}")[0])
     
     # get results 
     total_iterations = 1
-    for i in range(total_iterations):
+
+    for _ in range(total_iterations):
         # create grid object
         grid_object = Grid(size)
 
         # load cars on grid
-        grid_object.load_vehicles(file.csvfile)
+        grid_object.load_vehicles(args.csvfile)
 
         # show visual of starting grid
         grid_object.visualize_grid()
