@@ -4,6 +4,8 @@ import queue
 import copy
 
 def breadth_first_search(grid_object):
+
+    visited = []
     # store moves made
     moves_made = []
     # initialize a queue
@@ -17,10 +19,8 @@ def breadth_first_search(grid_object):
     while not q.empty():
         #get the first node
         node = q.get()
-        # print(node)
         # check is the node is the end node
         if node.won():
-            # print(f"Valid move made -> Vehicle {vehicle} moved {move}")
             # visualize solved puzzle
             grid_object.visualize_grid()
             # total amount of moves made
@@ -28,40 +28,22 @@ def breadth_first_search(grid_object):
             # return moves made
             return moves_made
 
-        # get all possible moves for the node
-        # moves = node._moves
-        # vehicles=node._vehicle_ids
-
         for move in possible_moves(node):
             # copy next grid
             child = copy.deepcopy(node)
             direction = move[0]
             vehicle_id = move[1]
-            # create child
-            child.move(direction, vehicle_id)
+
+            if child.move(direction,vehicle_id) == True and child._grid not in visited:
+                visited.append(child._grid)
+                q.append(child._grid)
+
             # print(child)
             # q.put(child)
-            print(child)
-        # for each move
-        # for move in moves:
-        #     # check if move is possible to make
-        #     for vehicle in vehicles:
-        #         if node.won():
-        #             # print(f"Valid move made -> Vehicle {vehicle} moved {move}")
-        #             # visualize solved puzzle
-        #             node.visualize_grid()
-        #             # total amount of moves made
-        #             print(f"Total moves made: {len(moves_made)}")
-        #             # return moves made
-        #             return moves_made
-                    
-        #         if node.move(move,vehicle) == True and "{vehicle} moved {move}" not in moves_made :
-        #             # print(f"Valid move made -> Vehicle {vehicle} moved {move}")
-        #             # visualize grid
-        #             # grid_object.visualize_grid()
-        #             # add move to moves made
-        #             moves_made.append(f"{vehicle} moved {move}")
-        #             # add node to queue
-        #             q.put(node)
+            print(child._grid)
+
+            print(visited)
+
+
     # return moves made
     return moves_made

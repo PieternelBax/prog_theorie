@@ -23,7 +23,7 @@ def main():
         # load cars on grid
         grid_object.load_vehicles(args.csvfile)
         # show visual of starting grid
-        grid_object.visualize_grid()
+        # grid_object.visualize_grid()
         # run random algorithm
         # random_alg.random_solver(grid_object)
         # run breadth first
