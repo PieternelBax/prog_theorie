@@ -1,7 +1,11 @@
 from code.classes.grid import Grid
 import code.algorithms.random as random_alg
 import code.algorithms.breadth_first as breadth_first
+<<<<<<< HEAD
 import code.algorithms.breadth_1 as breadth_1
+=======
+import code.algorithms.breadth_1 as breadth_first_search
+>>>>>>> 183f8dad9b69268ab7d7f5f41cb2d678a8589ed5
 import pandas as pd
 import argparse
 import re
@@ -14,7 +18,7 @@ def main():
     # get grid size from file name
     size = int(re.findall(r'[0-9]+', f"{args.csvfile}")[0])
     
-    # get results 
+    # run code x times
     total_iterations = 1
 
     for _ in range(total_iterations):
