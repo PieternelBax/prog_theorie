@@ -13,25 +13,22 @@ def possible_moves(grid):
     for row in range(grid._size):
         for col in range(grid._size):
             if grid._grid[row][col] == "_":
-                try:
-                    # print all vehicles around an empty spot
-                    if grid._grid[row][col + 1] != "_" and grid._vehicles[grid._grid[row][col + 1]]._orientation == "H" and col + 1 < grid._size:
-                        # print(grid._grid[row][col + 1])
-                        possible_moves.append(["left", grid._grid[row][col + 1]])
+                # print all vehicles around an empty spot
+                if col + 1 < grid._size and grid._grid[row][col + 1] != "_" and grid._vehicles[grid._grid[row][col + 1]]._orientation == "H":
+                    # print(grid._grid[row][col + 1])
+                    possible_moves.append(["left", grid._grid[row][col + 1]])
 
-                    if grid._grid[row][col - 1] != "_" and grid._vehicles[grid._grid[row][col - 1]]._orientation == "H" and col - 1 >= 0:
-                        # print(grid._grid[row][col - 1])
-                        possible_moves.append(["right", grid._grid[row][col - 1]])      
+                if col - 1 >= 0 and grid._grid[row][col - 1] != "_" and grid._vehicles[grid._grid[row][col - 1]]._orientation == "H":
+                    # print(grid._grid[row][col - 1])
+                    possible_moves.append(["right", grid._grid[row][col - 1]])      
 
-                    if grid._grid[row + 1][col] != "_" and grid._vehicles[grid._grid[row + 1][col]]._orientation == "V" and row + 1 < grid._size:
-                    #     print(grid._grid[row + 1][col]) 
-                        possible_moves.append(["up", grid._grid[row + 1][col]])
+                if row + 1 < grid._size and grid._grid[row + 1][col] != "_" and grid._vehicles[grid._grid[row + 1][col]]._orientation == "V":
+                #     print(grid._grid[row + 1][col]) 
+                    possible_moves.append(["up", grid._grid[row + 1][col]])
 
-                    if grid._grid[row - 1][col] != "_" and grid._vehicles[grid._grid[row - 1][col]]._orientation == "V" and row - 1 >= 0:
-                        # print(grid._grid[row - 1][col])
-                        possible_moves.append(["down", grid._grid[row - 1][col]])
-                except IndexError:
-                    pass
+                if row - 1 >= 0 and grid._grid[row - 1][col] != "_" and grid._vehicles[grid._grid[row - 1][col]]._orientation == "V":
+                    # print(grid._grid[row - 1][col])
+                    possible_moves.append(["down", grid._grid[row - 1][col]])
 
     return possible_moves
 
