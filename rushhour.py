@@ -1,7 +1,11 @@
 from code.classes.grid import Grid
 import code.algorithms.random as random_alg
 import code.algorithms.breadth_first as breadth_first
+<<<<<<< HEAD
+import code.algorithms.breadth_1 as breadth_1
+=======
 import code.algorithms.breadth_1 as breadth_first_search
+>>>>>>> 183f8dad9b69268ab7d7f5f41cb2d678a8589ed5
 import pandas as pd
 import argparse
 import re
@@ -30,7 +34,7 @@ def main():
         # run random algorithm
         # random_alg.random_solver(grid_object)
         # run breadth first
-        #--breadth_first.breadth_first_search(grid_object)
+        breadth_first.breadth_(grid_object)
 
     # run breadth first algorithm
     breadth_first.breadth_first_solver(grid_object)
