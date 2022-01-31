@@ -1,5 +1,6 @@
 # from matplotlib.pyplot import grid
 from code.algorithms.breadth_first import possible_moves
+from code.classes.grid import Grid
 import queue
 import copy
 
