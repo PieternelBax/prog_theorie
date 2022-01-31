@@ -14,6 +14,8 @@ def breadth_first_search(grid_object):
         # check is the node is the end node
         # get all possible moves for the node
         moves = node._moves
+        #print(moves)
+        #quit()
         vehicles=node._vehicle_ids
         # for each move
         for move in moves:
@@ -26,7 +28,9 @@ def breadth_first_search(grid_object):
                     # total amount of moves made
                     print(f"Total moves made: {len(moves_made)}")
                     # return moves made
+                    print(node.won)
                     return moves_made
+                    
                 if node.move(move,vehicle) == True and "{vehicle} moved {move}" not in moves_made :
                     # print(f"Valid move made -> Vehicle {vehicle} moved {move}")
                     # visualize grid
