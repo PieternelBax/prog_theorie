@@ -1,4 +1,5 @@
 from code.classes.vehicle import Vehicle
+import pprint
 import csv
 
 class Grid(object):
@@ -140,4 +141,4 @@ class Grid(object):
 
 
     def __str__(self):
-        return f"Board -> Width: {self._size}, Height: {self._size} \n {self._grid}"
+        return f"Board -> Width: {self._size}, Height: {self._size} \n {pprint.pprint(self._grid, compact=True, width=50)}"
