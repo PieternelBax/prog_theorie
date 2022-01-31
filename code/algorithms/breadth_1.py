@@ -16,14 +16,6 @@ def breadth_first_search(grid_object):
         #get the first node
         node = q.get()
         # check is the node is the end node
-        if node.won():
-            # print(f"Valid move made -> Vehicle {vehicle} moved {move}")
-            # visualize solved puzzle
-            grid_object.visualize_grid()
-            # total amount of moves made
-            print(f"Total moves made: {len(moves_made)}")
-            # return moves made
-            return moves_made
         # get all possible moves for the node
         moves = node._moves
         vehicles=node._vehicle_ids
@@ -42,7 +34,8 @@ def breadth_first_search(grid_object):
                 if node.move(move,vehicle) == True and "{vehicle} moved {move}" not in moves_made :
                     # print(f"Valid move made -> Vehicle {vehicle} moved {move}")
                     # visualize grid
-                    # grid_object.visualize_grid()
+                    #grid_object.visualize_grid()
+                    #print()
                     # add move to moves made
                     moves_made.append(f"{vehicle} moved {move}")
                     # add node to queue
