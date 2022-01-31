@@ -1,6 +1,6 @@
 from code.classes.grid import Grid
-import code.algorithms.random as random_alg
-import code.algorithms.breadth_first as breadth_first
+# import code.algorithms.random as random_alg
+# import code.algorithms.breadth_first as breadth_first
 import code.algorithms.breadth_1 as breadth_1
 import pandas as pd
 import argparse

@@ -1,4 +1,4 @@
-from matplotlib.pyplot import grid
+# from matplotlib.pyplot import grid
 from code.algorithms.breadth_first import possible_moves
 import queue
 import copy
