@@ -38,7 +38,7 @@ def breadth_first_search(grid_object):
                 if node.move(move,vehicle) == True and "{vehicle} moved {move}" not in moves_made :
                     # print(f"Valid move made -> Vehicle {vehicle} moved {move}")
                     # visualize grid
-                    grid_object.visualize_grid()
+                    # grid_object.visualize_grid()
                     # add move to moves made
                     moves_made.append(f"{vehicle} moved {move}")
                     # add node to queue
