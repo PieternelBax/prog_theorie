@@ -36,7 +36,7 @@ def breadth_first_search(grid_object):
 
             if child.move(direction,vehicle_id) == True and child._grid not in visited:
                 visited.append(child._grid)
-                q.append(child._grid)
+                q.put(child._grid)
 
             # print(child)
             # q.put(child)

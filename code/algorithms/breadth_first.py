@@ -1,7 +1,7 @@
 from os import stat
 import queue
 import copy
-from turtle import st
+# from turtle import st
 
 """Breadth First algorithm."""
 
