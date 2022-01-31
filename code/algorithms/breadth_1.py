@@ -5,45 +5,61 @@ import copy
 
 def breadth_first_search(grid_object):
 
-    visited = []
+    visited = {}
     # store moves made
     moves_made = []
     # initialize a queue
     q = queue.Queue()
-
-    # make copy
-    grid_copy = copy.deepcopy(grid_object)
 
     # add a start node to queue
     q.put(grid_object)
     while not q.empty():
         #get the first node
         node = q.get()
-        # check is the node is the end node
-        if node.won():
-            # visualize solved puzzle
-            grid_object.visualize_grid()
-            # total amount of moves made
-            print(f"Total moves made: {len(moves_made)}")
-            # return moves made
-            return moves_made
 
         for move in possible_moves(node):
             # copy next grid
+            #print(node, move)
             child = copy.deepcopy(node)
             direction = move[0]
             vehicle_id = move[1]
 
-            if child.move(direction,vehicle_id) == True and child._grid not in visited:
-                visited.append(child._grid)
-                q.put(child._grid)
+            child.move(direction,vehicle_id)
 
-            # print(child)
-            # q.put(child)
-            print(child._grid)
+            created_tuple = make_tuple(child._grid)
 
-            print(visited)
+            if created_tuple not in visited:
+                # make child._grid a tuple so it can be added to the visited set
+                visited[created_tuple] = node
+                q.put(child)
+                if child.won():
+                    path = find_path(child, visited, grid_object)
+                    print(len(path))
+                    child.visualize_grid()
+                    return
+        #print(q.qsize())
+    print('hi')           
 
 
     # return moves made
     return moves_made
+
+
+def make_tuple(grid):
+    new_tuple = []
+
+    for row in grid:
+        new_tuple.append(tuple(row))
+
+    return tuple(new_tuple)
+
+def find_path(child, visited, start_grid):
+    path = [child]
+
+    while child != start_grid:
+        parent = visited[make_tuple(child._grid)]
+        path.append(parent)
+        child = parent
+    
+    return path
+        
