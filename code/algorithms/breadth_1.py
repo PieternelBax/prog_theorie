@@ -12,12 +12,9 @@ def breadth_first_search(grid_object):
     # initialize a queue
     q = queue.Queue()
 
-<<<<<<< HEAD
     # make copy
     # grid_copy = copy.deepcopy(grid_object)
 
-=======
->>>>>>> 96d405d7b478078be995d2c8e561aacf9ba208e8
     # add a start node to queue
     q.put(grid_object)
     while not q.empty():
