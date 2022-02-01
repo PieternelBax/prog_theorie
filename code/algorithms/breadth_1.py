@@ -35,6 +35,7 @@ def breadth_first_search(grid_object):
             if created_tuple not in visited:
                 # make child._grid a tuple so it can be added to the visited set
                 visited[created_tuple] = node
+                #print(child.visualize_grid())
                 q.put(child)
                 if child.won():
                     path = find_path(child, visited, grid_object)
