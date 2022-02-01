@@ -38,7 +38,8 @@ def breadth_first_search(grid_object):
                     print(len(path))
                     child.visualize_grid()
                     return
-        #print(q.qsize())
+        if q.qsize() % 1000 == 0:
+            print(q.qsize())
     print('hi')           
 
 
