@@ -1,11 +1,14 @@
 import heapq
 import copy
+from code.algorithms.breadth_first import possible_moves
+
+from numpy import true_divide
 
 def a_star(grid_object):
     
     start_grid = copy.deepcopy(grid_object)
 
-    to_visit = [(0, start_grid._grid)] #TODO: find out all information needed
+    to_visit = [(0, start_grid)] #TODO: find out all information needed
     visited = set()
 
     # Arrange to_visit based on the F_cost number / create priority queue
@@ -14,18 +17,34 @@ def a_star(grid_object):
     while len(to_visit) > 0:
         # current node in to_visit with lowest f_cost and pop from list
         current_heap = heapq.heappop(to_visit)
-        current = current_heap[1]
+        current_grid = current_heap[1]
 
         # add currect_node to visited
-        created_tuple = make_tuple(current)
+        created_tuple = make_tuple(current_grid._grid)
         visited.add(created_tuple)
         
-        # if current_node is the target node do not finsih here finsifh queue first
-        if current.won():
-            return
-        
-        # for each neighbour of the current_node:
+        child_list = []
 
+        # for each neighbour of the current_node:
+        for move in possible_moves(current_grid):
+            # copy next grid
+            print(current_grid, move)
+            child = copy.deepcopy(current_grid)
+            direction = move[0]
+            vehicle_id = move[1]
+
+            child.move(direction,vehicle_id)
+
+            # if current_node is the target node do not finsih here finsifh queue first
+            if child.won():
+                return
+            
+            child_list.append(child._grid)
+        
+        lenght_child_list = len(child_list)
+        for child_in_list in child_list:
+            heapq.heappush(lenght_child_list, [child_in_list])
+        print(to_visit)
             # if neighbour is not traversable or neighbour is in visited:
 
                 # skip to next neighbour
