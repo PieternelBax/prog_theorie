@@ -40,6 +40,7 @@ def breadth_first_search(grid_object):
                     path = find_path(child, visited, grid_object)
                     print(len(path))
                     child.visualize_grid()
+                    print()
                     return
         if q.qsize() % 1000 == 0:
             print(q.qsize())
@@ -65,6 +66,7 @@ def find_path(child, visited, start_grid):
         parent = visited[make_tuple(child._grid)]
         path.append(parent)
         child = parent
-    
+
+
     return path
         
