@@ -1,8 +1,4 @@
-from asyncore import loop
 import heapq
-from http.client import FOUND
-
-from zmq import fd_sockopts
 
 def a_star():
     to_visit = 
