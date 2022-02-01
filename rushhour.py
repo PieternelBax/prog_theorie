@@ -24,11 +24,11 @@ def main():
         # load cars on grid
         grid_object.load_vehicles(args.csvfile)
         # show visual of starting grid
-        # grid_object.visualize_grid()
+        grid_object.visualize_grid()
         # run random algorithm
         # random_alg.random_solver(grid_object)
         # run breadth first
-        #breadth_1.breadth_first_search(grid_object)
+        # breadth_1.breadth_first_search(grid_object)
         a_star.a_star(grid_object)
 
     # run breadth first algorithm
