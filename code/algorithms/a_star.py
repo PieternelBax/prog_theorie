@@ -24,4 +24,14 @@ def a_star():
                 set f_cost of neighbour
                 set parent of neighbour to current_node
                 if neighbour is not in to_visit:
-                    add neighbour to to_visi
+                    add neighbour to to_visit 
+
+
+def calculate_g_cost():
+    pass
+
+def calculate_h_cost():
+    pass
+
+def calculate_f_cost():
+    pass
