@@ -66,7 +66,7 @@ Our repository is structured as follows:
     * This folder contains the total moves made for each game, using the random algorithm. This data can be used to create scatterplots that show the most frequent total moves that the algorithm returns.
 
 * docs:
-    * This file contains a gif that shows game two being solved.
+    * This folder contains a gif that shows game two being solved.
 
 * docs/visualisation:
     * This folder contains the scatterplot images that are created using the output data that is collected from running the random algorithm multiple times.
