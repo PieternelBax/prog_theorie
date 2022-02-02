@@ -44,8 +44,9 @@ def a_star(grid_object):
                 if child.won():
                     path = find_path(child, visited, start_grid)
                     path_lenght = len(path)
-                    print(path_lenght)
                     best_lenght.add(path_lenght)
+                    print(path_lenght)
+                    return
                     # child.visualize_grid()
                     
                 child_list.append(child)
