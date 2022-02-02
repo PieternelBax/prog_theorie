@@ -2,7 +2,6 @@ import queue
 import copy
 
 
-
 def breadth_first_search(grid_object):
     # initialize dict to store visited grids
     visited = {}
@@ -37,10 +36,9 @@ def breadth_first_search(grid_object):
 
                 if child.won():
                     path = find_path(child, visited, grid_object)
-                    print(len(path))
-                    # child.visualize_grid()
-                    # print()
-                    # print(q.qsize())
+                    #print(len(path))
+                    #child.visualize_grid()
+                    #print()
                     return
         # print queue
         # if q.qsize() % 1000 == 0:
