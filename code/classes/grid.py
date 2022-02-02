@@ -18,8 +18,6 @@ class Grid(object):
         # list of all possible moves 
         self._moves = ["right", "left", "up", "down"]
 
-        
-
 
     def create_id_list(self):
         """
