@@ -3,6 +3,7 @@ import code.algorithms.random as random_alg
 import code.algorithms.breadth_1 as breadth_1
 import code.algorithms.a_star as a_star
 import argparse
+import time
 import re
 
 def main():
@@ -28,9 +29,12 @@ def main():
         # run random algorithm
         # random_alg.random_solver(grid_object)
 
+        start = time.time()
         # run breadth first
         breadth_1.breadth_first_search(grid_object)
-        
+        end = time.time()
+        print(f"Breath first took {end - start} seconds\n")
+
         # a_star.a_star(grid_object)
 
 

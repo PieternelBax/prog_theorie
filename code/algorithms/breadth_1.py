@@ -2,6 +2,7 @@ import queue
 import copy
 
 
+
 def breadth_first_search(grid_object):
     # initialize dict to store visited grids
     visited = {}
