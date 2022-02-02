@@ -4,6 +4,9 @@ Course: programmeertheorie
 Team: The three programmers
 
 This file is the main file from this file different functions are called in order to run the program.
+To run program the following command line argument structure is needed:
+python3 filename.csv algorithm.
+algorithms can be entered as one of the following: random or r | breadth-first or b | a-star or a
 """
 
 from code.classes.grid import Grid
@@ -30,6 +33,7 @@ def main():
     # load cars on grid
     grid_object.load_vehicles(args.csvfile)
     
+    # run random algorithm
     if args.algoritme == 'random' or args.algoritme == 'r':
         # run code x times
         total_iterations = 1
@@ -45,26 +49,28 @@ def main():
             # load cars on grid
             grid_object.load_vehicles(args.csvfile)
 
-            #-----------------------------------run random algorithm-----------------------------------#
+            # run random algorithm
             random_solution = random_alg.random_solver(grid_object)
             print(random_solution)
 
             #add solution to data list
             data.append(random_solution)
 
-            #--------------------------------plot random solutions data--------------------------------#
+            # plot random solutions data
             visual.outputCsv(workload=args.csvfile, data=data)
             visual.scatterPlot(workload=args.csvfile, data=data)
     
+    # run breadth first algorithm
     if args.algoritme == 'breadth-first' or args.algoritme == 'b':
-        #-------------------------------run breadth first algorithm--------------------------------#
+        
         start = time.time()
         breadth_1.breadth_first_search(grid_object)
         end = time.time()
         print(f"Breath first solver took {end - start} seconds\n")
     
-    if args.algoritme == 'a*' or args.algoritme == 'a':
-        #-----------------------------------run a star algorithm-----------------------------------#
+    # run a star algorithm
+    if args.algoritme == 'a-star' or args.algoritme == 'a':
+        
         start = time.time()
         a_star.a_star(grid_object)
         end = time.time()
