@@ -16,7 +16,7 @@ def main():
     size = int(re.findall(r'[0-9]+', f"{args.csvfile}")[0])
     
     # run code x times
-    total_iterations = 1
+    total_iterations = 600
 
     # initialize list to add random solutions
     data = []
