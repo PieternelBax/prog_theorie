@@ -13,12 +13,13 @@ def a_star(grid_object):
 
     # Arrange to_visit based on the F_cost number / create priority queue
     heapq.heapify(to_visit)
+    id_count = 0
 
     while len(to_visit) > 0:
         # current node in to_visit with lowest f_cost and pop from list
         current_heap = heapq.heappop(to_visit)
         current_grid = current_heap[2]
- 
+        
         child_list = []
         
         # for each neighbour of the current grid:
@@ -32,28 +33,28 @@ def a_star(grid_object):
             # move car on grid
             child.move(direction,vehicle_id)
 
-            # add currect grid to visited
-            created_tuple = make_tuple(current_grid._grid)
-            visited[created_tuple] = current_grid
+            created_tuple = make_tuple(child._grid)
 
-            # if current_node is the target node do not finsih here finsifh queue first
+            if created_tuple not in visited:
+                # add child to visited dict
+                visited[created_tuple] = current_grid
+            
+            # if current_node is the target node do not finish here finish queue first
             if child.won():
                 # path = find_path(child, visited, grid_object)
                 # print(len(path))
-                # child.visualize_grid()
+                child.visualize_grid()
                 print('found')
                 return
-            
             child_list.append(child)
             
-        count = 0
+        
 
         for child_in_list in child_list:
+            id_count += 1
             f_cost = calculate_f_cost(child_in_list, child_list)
-            count += 1
-            heapq.heappush(to_visit, (f_cost, count, child_in_list))
+            heapq.heappush(to_visit, (f_cost, id_count, child_in_list))
         
-        # 
 
 def calculate_h_cost(child_in_list):
     # huidige plaats van car x minus final plek index
@@ -79,12 +80,3 @@ def calculate_f_cost(child_in_list, child_list):
 def calculate_g_cost(child_list):
     g_cost = len(child_list)
     return g_cost
-
-
-def make_tuple(grid):
-    new_tuple = []
-
-    for row in grid:
-        new_tuple.append(tuple(row))
-
-    return tuple(new_tuple)
