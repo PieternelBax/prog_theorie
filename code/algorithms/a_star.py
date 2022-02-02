@@ -43,7 +43,7 @@ def a_star(grid_object):
         
         lenght_child_list = len(child_list)
         for child_in_list in child_list:
-            heapq.heappush(lenght_child_list, [child_in_list])
+            heapq.heappush(to_visit, [lenght_child_list, child_in_list])
         print(to_visit)
             # if neighbour is not traversable or neighbour is in visited:
 
