@@ -32,8 +32,8 @@ def main():
         data.append([random_alg.random_solver(grid_object)])
         #random_alg.random_solver(grid_object)
         # run breadth first
-        # breadth_1.breadth_first_search(grid_object)
-        # a_star.a_star(grid_object)
+        #breadth_1.breadth_first_search(grid_object)
+        #a_star.a_star(grid_object)
     # visualising random
     visual.outputCsv(workload=args.csvfile, data=data)
     visual.scatterPlot(workload=args.csvfile, data=data)

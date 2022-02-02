@@ -53,7 +53,6 @@ def a_star(grid_object):
             count += 1
             heapq.heappush(to_visit, (f_cost, count, child_in_list))
         
-        # 
 
 def calculate_h_cost(child_in_list):
     # huidige plaats van car x minus final plek index

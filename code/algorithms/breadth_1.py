@@ -31,14 +31,14 @@ def breadth_first_search(grid_object):
             if created_tuple not in visited:
                 # add child to visited dict
                 visited[created_tuple] = node
-                print(child.visualize_grid())
+                #print(child.visualize_grid())
                 q.put(child)
 
                 if child.won():
                     path = find_path(child, visited, grid_object)
-                    print(len(path))
-                    child.visualize_grid()
-                    print()
+                    #print(len(path))
+                    #child.visualize_grid()
+                    #print()
                     return
         # print queue
         if q.qsize() % 1000 == 0:
