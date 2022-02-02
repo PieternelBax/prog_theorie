@@ -33,10 +33,6 @@ def main():
 
         # show visual of starting grid
         # grid_object.visualize_grid()
-<<<<<<< HEAD
-=======
-
->>>>>>> d17238e143bd3e33a992fee4b4943065efd4b8e3
         # run random algorithm
         data.append([random_alg.random_solver(grid_object)])
         #random_alg.random_solver(grid_object)
