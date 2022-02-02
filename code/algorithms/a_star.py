@@ -1,8 +1,7 @@
+from code.algorithms.breadth_1 import possible_moves, make_tuple
 import heapq
 import copy
-from code.algorithms.breadth_first import possible_moves
 
-from numpy import true_divide
 
 def a_star(grid_object):
     
@@ -20,16 +19,15 @@ def a_star(grid_object):
         current_heap = heapq.heappop(to_visit)
         current_grid = current_heap[1]
 
-        # add currect_node to visited
+        # add currect grid to visited
         created_tuple = make_tuple(current_grid._grid)
         visited.add(created_tuple)
         
         child_list = []
 
-        # for each neighbour of the current_node:
+        # for each neighbour of the current grid:
         for move in possible_moves(current_grid):
             # copy next grid
-            print(current_grid, move)
             child = copy.deepcopy(current_grid)
             direction = move[0]
             vehicle_id = move[1]
