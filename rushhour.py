@@ -1,10 +1,15 @@
 from code.classes.grid import Grid
 import code.algorithms.random as random_alg
+<<<<<<< HEAD
 # import code.algorithms.breadth_first as breadth_first
 import code.algorithms.breadth_1 as breadth_1
 import code.algorithms.a_star as a_star
 import code.visualisation.visualisation as visual
 import pandas as pd
+=======
+import code.algorithms.breadth_1 as breadth_1
+import code.algorithms.a_star as a_star
+>>>>>>> d17238e143bd3e33a992fee4b4943065efd4b8e3
 import argparse
 import re
 
@@ -25,8 +30,13 @@ def main():
         grid_object = Grid(size)
         # load cars on grid
         grid_object.load_vehicles(args.csvfile)
+
         # show visual of starting grid
         # grid_object.visualize_grid()
+<<<<<<< HEAD
+=======
+
+>>>>>>> d17238e143bd3e33a992fee4b4943065efd4b8e3
         # run random algorithm
         data.append([random_alg.random_solver(grid_object)])
         #random_alg.random_solver(grid_object)
@@ -39,6 +49,10 @@ def main():
     # run breadth first algorithm
     # breadth_first.breadth_first_solver(grid_object)
 
+        # run breadth first
+        breadth_1.breadth_first_search(grid_object)
+        
+        # a_star.a_star(grid_object)
 
 
 if __name__ == '__main__':
