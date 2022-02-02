@@ -2,8 +2,9 @@ import os
 import csv
 import matplotlib.pyplot as plt
 
-outputDir = "code/visualisation/output"
-
+# saving destination
+outputDir = "docs/visualisation"
+output_data = "data/output_data"
 
 def outputCsv(workload, data):
     if "\\" in workload:
@@ -12,7 +13,7 @@ def outputCsv(workload, data):
         filename = "output_" + workload.split("/")[-1]
 
     try:
-        f = open(os.path.join(outputDir, filename), 'w', newline='')
+        f = open(os.path.join(output_data, filename), 'w', newline='')
         # create the csv writer
         writer = csv.writer(f)
         for value in data:
@@ -23,7 +24,7 @@ def outputCsv(workload, data):
     except Exception as e:
         print(e)
 
-
+# creating scatter plot
 def scatterPlot(workload, data):
     x = []
     y = []
