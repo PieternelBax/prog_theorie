@@ -22,14 +22,4 @@ def random_solver(grid_object):
         if grid_object.move(move, vehicle):
             moves_made.append(f"{vehicle} moved {move}")
 
-#----------------------------------------Uncomment to see solved puzzle------------------#
-    #print("\n")
-    #print("Solved puzzle:")
-    # # visualize solved puzzle
-    #grid_object.visualize_grid()
-
-    # # total amount of moves made
-    # print(f"Total moves made: {len(moves_made)}") 
-
     return str(len(moves_made))
-

@@ -4,15 +4,16 @@ Course: programmeertheorie
 Team: The three programmers
 
 This file is the main file from this file different functions are called in order to run the program.
+To run program the following command line argument structure is needed:
+python3 filename.csv algorithm.
+algorithms can be entered as one of the following: random or r | breadth-first or b | a-star or a
 """
-
 from code.classes.grid import Grid
 import code.algorithms.random as random_alg
 import code.algorithms.breadth_1 as breadth_1
 import code.algorithms.a_star as a_star
 import code.visualisation.visualisation as visual
 import argparse
-import time
 import re
 
 def main():
@@ -30,45 +31,39 @@ def main():
     # load cars on grid
     grid_object.load_vehicles(args.csvfile)
     
+    # run random algorithm
     if args.algoritme == 'random' or args.algoritme == 'r':
         # run code x times
-        total_iterations = 600
+        total_iterations = 1
 
         # initialize list to add random solutions
         data = []
 
         for _ in range(total_iterations):
-        
             # create grid object
             grid_object = Grid(size)
             
             # load cars on grid
             grid_object.load_vehicles(args.csvfile)
 
-            #-----------------------------------run random algorithm-----------------------------------#
+            # run random algorithm
             random_solution = random_alg.random_solver(grid_object)
             print(random_solution)
 
             #add solution to data list
             data.append(random_solution)
 
-            #--------------------------------plot random solutions data--------------------------------#
+            # plot random solutions data
             visual.outputCsv(workload=args.csvfile, data=data)
             visual.scatterPlot(workload=args.csvfile, data=data)
     
-    if args.algoritme == 'breadth-first' or args.algoritme == 'b':
-        #-----------------------------------run breadth first algorithm--------------------------------#
-        start = time.time()
+    # run breadth first algorithm
+    elif args.algoritme == 'breadth-first' or args.algoritme == 'b':  
         breadth_1.breadth_first_search(grid_object)
-        end = time.time()
-        print(f"Breath first solver took {end - start} seconds\n")
-    
-    if args.algoritme == 'a*' or args.algoritme == 'a':
-        #-----------------------------------run a star algorithm-----------------------------------#
-        start = time.time()
+
+    # run a star algorithm
+    elif args.algoritme == 'a-star' or args.algoritme == 'a':
         a_star.a_star(grid_object)
-        end = time.time()
-        print(f"A-star solver took {end - start} seconds\n")
 
 
 if __name__ == '__main__':
