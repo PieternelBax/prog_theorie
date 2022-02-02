@@ -1,11 +1,21 @@
+"""
+random.py
+Course: programmeertheorie
+Team: The three programmers
+
+This file contains the random algorithm and is called from the main file (rushhour.py).
+
+"""
+
 import random
 
-
 def random_solver(grid_object):
+    
     # initialize list to store moves made
     moves_made = []
 
     while not grid_object.won():
+        
         # choose random vehicle to move
         vehicle = random.choice(grid_object._vehicle_ids)
 
@@ -14,10 +24,6 @@ def random_solver(grid_object):
 
         # check if move is possible to make
         if grid_object.move(move, vehicle):
-            #print(f"Valid move made -> Vehicle {vehicle} moved {move}")
-            #grid_object.visualize_grid()
-
-            # grid_object.visualize_grid()
             moves_made.append(f"{vehicle} moved {move}")
 
 #----------------------------------------Uncomment to get output for one------------------#

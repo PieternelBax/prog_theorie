@@ -1,3 +1,11 @@
+"""
+rushhour.py
+Course: programmeertheorie
+Team: The three programmers
+
+This file is the main file from this file different functions are called in order to run the program.
+"""
+
 from code.classes.grid import Grid
 import code.algorithms.random as random_alg
 import code.algorithms.breadth_1 as breadth_1
