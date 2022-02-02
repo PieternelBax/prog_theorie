@@ -28,14 +28,14 @@ def main():
         # run random algorithm
         # random_alg.random_solver(grid_object)
         # run breadth first
-        breadth_1.breadth_first_search(grid_object)
-        # a_star.a_star(grid_object)
+        #breadth_1.breadth_first_search(grid_object)
+        a_star.a_star(grid_object)
 
     # run breadth first algorithm
     # breadth_first.breadth_first_solver(grid_object)
 
         # run breadth first
-        breadth_1.breadth_first_search(grid_object)
+        #breadth_1.breadth_first_search(grid_object)
         
         # a_star.a_star(grid_object)
 
