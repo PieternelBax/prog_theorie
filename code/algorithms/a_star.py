@@ -48,7 +48,6 @@ def a_star(grid_object):
         calculate_g_cost(child_list)
 
         for child_in_list in child_list:
-<<<<<<< HEAD
             heapq.heappush(to_visit, [lenght_child_list, child_in_list])
         print(to_visit)
             # if neighbour is not traversable or neighbour is in visited:
@@ -64,12 +63,6 @@ def a_star(grid_object):
                 # if neighbour is not in to_visit:
 
                     # add neighbour to to_visit 
-=======
-            calculate_h_cost(child_in_list)
-            heapq.heappush(to_visit, (calculate_f_cost(), 0, child_in_list))
-        
-        # 
->>>>>>> d17238e143bd3e33a992fee4b4943065efd4b8e3
 
 
 def calculate_g_cost(child_list):

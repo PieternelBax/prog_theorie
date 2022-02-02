@@ -31,11 +31,7 @@ def breadth_first_search(grid_object):
             if created_tuple not in visited:
                 # add child to visited dict
                 visited[created_tuple] = node
-<<<<<<< HEAD
                 print(child.visualize_grid())
-=======
-
->>>>>>> d17238e143bd3e33a992fee4b4943065efd4b8e3
                 q.put(child)
 
                 if child.won():
