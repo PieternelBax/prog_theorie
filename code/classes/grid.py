@@ -19,8 +19,6 @@ class Grid(object):
         self._moves = ["right", "left", "up", "down"]
 
         
-
-
     def create_id_list(self):
         """
         Returns a list with all keys (vehicle IDs) from the vehicle dictionary.
@@ -89,10 +87,7 @@ class Grid(object):
     def visualize_grid(self):
         """Prints string representation of grid with cars."""
         for row in self._grid:
-            # print(' '.join(map(str, row)))
             print(*row)
-
-        # print("\n".join([str(row) for row in self._grid]))
 
 
     def move(self, direction, vehicle_id):
@@ -141,4 +136,4 @@ class Grid(object):
 
 
     def __str__(self):
-        return f"Board -> Width: {self._size}, Height: {self._size} \n {pprint.pprint(self._grid, compact=True, width=50)}"
+        return f"{pprint.pprint(self._grid, compact=True, width=50)}"

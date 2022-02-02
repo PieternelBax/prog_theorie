@@ -32,7 +32,7 @@ def main():
     
     if args.algoritme == 'random' or args.algoritme == 'r':
         # run code x times
-        total_iterations = 1
+        total_iterations = 600
 
         # initialize list to add random solutions
         data = []
@@ -57,7 +57,7 @@ def main():
             visual.scatterPlot(workload=args.csvfile, data=data)
     
     if args.algoritme == 'breadth-first' or args.algoritme == 'b':
-        #-------------------------------run breadth first algorithm--------------------------------#
+        #-----------------------------------run breadth first algorithm--------------------------------#
         start = time.time()
         breadth_1.breadth_first_search(grid_object)
         end = time.time()
@@ -69,6 +69,7 @@ def main():
         a_star.a_star(grid_object)
         end = time.time()
         print(f"A-star solver took {end - start} seconds\n")
+
 
 if __name__ == '__main__':
 
