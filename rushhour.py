@@ -47,10 +47,10 @@ def main():
         #breadth_1.breadth_first_search(grid_object)
         
         #-------------------------------run breadth first algorithm--------------------------------#
-        start = time.time()
-        breadth_1.breadth_first_search(grid_object)
-        end = time.time()
-        print(f"Breath first solver took {end - start} seconds\n")
+        # start = time.time()
+        # breadth_1.breadth_first_search(grid_object)
+        # end = time.time()
+        # print(f"Breath first solver took {end - start} seconds\n")
 
 
 if __name__ == '__main__':
