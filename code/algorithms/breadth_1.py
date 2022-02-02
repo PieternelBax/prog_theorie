@@ -42,7 +42,7 @@ def breadth_first_search(grid_object):
                     child.visualize_grid()
                     print()
                     return
-        if q.qsize() % 1000 == 0:
+        if q.qsize() % 10000 == 0:
             print(q.qsize())
     print('hi')           
 
