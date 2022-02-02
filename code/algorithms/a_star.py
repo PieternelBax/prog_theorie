@@ -9,7 +9,7 @@ def a_star(grid_object):
 
     to_visit = (0, 0, 0, start_grid) #TODO: find out all information needed
     visited = {}
-    best_lenght = set()
+    best_length = set()
     q = queue.PriorityQueue()
 
     # Arrange to_visit based on the F_cost number / create priority queue
@@ -43,9 +43,9 @@ def a_star(grid_object):
                 # if current_node is the target node do not finish here finish queue first
                 if child.won():
                     path = find_path(child, visited, start_grid)
-                    path_lenght = len(path)
-                    print(path_lenght)
-                    best_lenght.add(path_lenght)
+                    path_length = len(path)
+                    # print(path_length)
+                    best_length.add(path_length)
                     # child.visualize_grid()
                     
                 child_list.append(child)
@@ -56,7 +56,8 @@ def a_star(grid_object):
                 h_cost =  calculate_h_cost(child_in_list)
                 f_cost = g_cost + h_cost
                 q.put((f_cost, id_count, g_cost, child_in_list))
-    return print(min(best_lenght))    
+                
+    return print(min(best_length))    
 
 def calculate_h_cost(child_in_list):
     # huidige plaats van car x minus final plek index
