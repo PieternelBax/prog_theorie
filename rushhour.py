@@ -2,7 +2,7 @@ from code.classes.grid import Grid
 import code.algorithms.random as random_alg
 import code.algorithms.breadth_1 as breadth_1
 import code.algorithms.a_star as a_star
-# import code.visualisation.visualisation as visual
+import code.visualisation.visualisation as visual
 import argparse
 import time
 import re
@@ -16,7 +16,7 @@ def main():
     size = int(re.findall(r'[0-9]+', f"{args.csvfile}")[0])
     
     # run code x times
-    total_iterations = 1
+    total_iterations = 600
 
     # initialize list to add random solutions
     data = []
