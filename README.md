@@ -25,18 +25,27 @@ where filename is the name of the game that you want to play, for example: data/
 
 
 ## Choose Algorithm
-To choose a specific algorithm, you need to uncomment which one in ```rushhour.py```.
+To choose a specific algorithm, you need to add it in the commant line. Otherwise the random algorithm
+will be selected.
+
+The following arguments are accepted after the filename:
+* Breadth first search algorithm | ```breadth-first or b```
+* A-star algorithm | ```a-star or a```
+* Random algorithm | ```random or r```
+
+To use the algorithm, run:
+```
+python3 rushhour.py data/filename.csv algorithm
+```
+where algorithm is the name of the algorithm that you want to use, for example: ```python3 rushhour.py data/Rushhour6x6_1.csv b```
 
 In the ```main``` function, you will see a for loop that can help with running the algorithm a certain amount of times. To change the number of iterations, simply fill in an integer at the ```total_iterations``` variable.
-
-To choose an algorithm, you can uncomment the one you want to run. To find the lines to uncomment, look for the comments with a long line and follow further instructions.
-
 
 ## Structure
 Our repository is structured as follows:
 
 * code/algorithms:
-    * ```a_star.py```:
+    * ```a_star.py```: checks each child that has the lowest costs first whilst building a binary tree to find the shortest path towards the end goal.
 
     * ```breadth_1.py```: checks each child grid horizontally, starting from the left and returns the shortest path.
 
@@ -53,8 +62,14 @@ Our repository is structured as follows:
 * data:
     * This folder contains the data for each game.
 
+* data/output data:
+    * This folder contains the total moves made for each game, using the random algorithm. This data can be used to create scatterplots that show the most frequent total moves that the algorithm returns.
+
 * docs:
-    * This file contains a gif that shows game two being solved.
+    * This folder contains a gif that shows game two being solved.
+
+* docs/visualisation:
+    * This folder contains the scatterplot images that are created using the output data that is collected from running the random algorithm multiple times.
 
 
 ### Team - The three programmers

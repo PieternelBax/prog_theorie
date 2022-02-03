@@ -4,18 +4,14 @@ Course: programmeertheorie
 Team: The three programmers
 
 This file contains the random algorithm and is called from the main file (rushhour.py).
-
 """
-
 import random
 
 def random_solver(grid_object):
-    
     # initialize list to store moves made
     moves_made = []
 
     while not grid_object.won():
-        
         # choose random vehicle to move
         vehicle = random.choice(grid_object._vehicle_ids)
 
@@ -27,4 +23,3 @@ def random_solver(grid_object):
             moves_made.append(f"{vehicle} moved {move}")
 
     return str(len(moves_made))
-
